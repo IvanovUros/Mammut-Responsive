@@ -1,1 +1,453 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100rem;
+}
+
+.main-header {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  position: absolute;
+}
+.main-header .overhead-bar {
+  width: 0%;
+  height: 0.2rem;
+  background-color: #e00b25;
+  border-radius: 3px;
+  position: absolute;
+  position: fixed;
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+.main-header .logo-wrapper {
+  width: 13rem;
+  height: 2rem;
+  position: absolute;
+  align-self: center;
+  transition: all 0.4s ease-in-out;
+  translate: 0 -5rem;
+  z-index: 1;
+}
+.main-header .logo-wrapper .logo {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-btn-wrapper {
+  width: 100%;
+  height: 90px;
+  position: relative;
+  position: absolute;
+  z-index: 5;
+  bottom: 0px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  overflow: hidden;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper {
+    top: 0;
+    height: 7rem;
+    position: absolute;
+  }
+}
+.menu-btn-wrapper .menu-btn {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(241, 240, 240);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 6;
+  transition: all 0.5s ease-in-out;
+  translate: 0 100px;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-btn {
+    position: absolute;
+    left: 5%;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    background-color: transparent;
+    translate: 0 -100px;
+  }
+}
+.menu-btn-wrapper .menu-btn .menu-btn-burger-mid {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #000;
+  position: absolute;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-btn .menu-btn-burger-mid {
+    display: none;
+  }
+}
+.menu-btn-wrapper .menu-btn .menu-btn-burger-top {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 27px;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-btn .menu-btn-burger-top {
+    top: 3.5px;
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-btn .menu-btn-burger-btm {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #000;
+  position: absolute;
+  bottom: 27px;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-btn .menu-btn-burger-btm {
+    bottom: 3.5px;
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper {
+  width: 0px;
+  height: 40px;
+  background-color: rgb(233, 230, 230);
+  position: absolute;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  translate: 0 100px;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper {
+    right: 5%;
+    width: 170px;
+    translate: 0 -100px;
+    background-color: transparent;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper {
+  display: inline-block;
+  display: flex;
+  position: relative;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper {
+    display: initial;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper .account-head {
+  width: 12px;
+  height: 12px;
+  border: 3px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper .account-head {
+    border-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper .account-body {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #000;
+  border-radius: 40%;
+  position: absolute;
+  bottom: -15px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-account-wrapper .account-body {
+    border-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper {
+  display: inline-block;
+  display: flex;
+  position: relative;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  left: 20px;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper {
+    left: 70px;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper .loop-curcle {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper .loop-curcle {
+    border-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper .loop-handle {
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  position: absolute;
+  background-color: #000;
+  bottom: 5px;
+  right: -1px;
+  rotate: 45deg;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-loop-wrapper .loop-handle {
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper {
+  display: inline-block;
+  display: flex;
+  position: relative;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-handle {
+  width: 10px;
+  height: 6px;
+  border: 3px solid #000;
+  border-bottom: 0;
+  position: absolute;
+  top: 5px;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-handle {
+    border-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-mid {
+  width: 29px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 10px;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-mid {
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-side-left {
+  width: 2px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 5px;
+  transition: all 0.3s ease-in-out;
+  left: 1px;
+  rotate: -10deg;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-side-left {
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-side-right {
+  width: 2px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 5px;
+  transition: all 0.3s ease-in-out;
+  right: 1px;
+  rotate: 10deg;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-side-right {
+    background-color: #fff;
+  }
+}
+.menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-btm {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #000;
+  position: absolute;
+  bottom: 4px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (min-width: 1024px) {
+  .menu-btn-wrapper .menu-loop-basket-wrapper .menu-basket-wrapper .basket-btm {
+    background-color: #fff;
+  }
+}
+
+.hero-up {
+  width: 100%;
+  height: 170vh;
+  position: absolute;
+  position: relative;
+  background-color: #23293c;
+  display: flex;
+}
+@media screen and (min-width: 1024px) {
+  .hero-up {
+    height: 95vh;
+    width: 100%;
+  }
+}
+.hero-up .hero-img-wrapper {
+  width: 100%;
+  height: 68%;
+  background-image: url(/Mammut-responsive/slike/hero-background/hero-background-up.txt);
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (min-width: 1024px) {
+  .hero-up .hero-img-wrapper {
+    height: 100%;
+    width: 68%;
+  }
+}
+.hero-up .hero-content-wrapper {
+  width: 100%;
+  height: 32%;
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (min-width: 1024px) {
+  .hero-up .hero-content-wrapper {
+    height: 100%;
+    width: 32%;
+    position: relative;
+  }
+}
+.hero-up .hero-content-wrapper .hero-title {
+  font-size: 4.5rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+}
+@media screen and (min-width: 1024px) {
+  .hero-up .hero-content-wrapper .hero-title {
+    height: 100%;
+    width: 32%;
+  }
+}
+.hero-up .hero-content-wrapper .hero-text {
+  width: 60%;
+  font-size: 1.6rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 40%;
+}
+.hero-up .hero-content-wrapper .class-list {
+  width: 30rem;
+  height: 4rem;
+  border: 1px solid green;
+  position: absolute;
+  left: 5%;
+  top: 60%;
+}
+.hero-up .hero-content-wrapper .class-list .class-list-item {
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  margin-right: 2.5rem;
+}
+
+.category-container {
+  width: 100%;
+  height: 85vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.category-container .category-container-heading {
+  font-size: 2.5rem;
+  color: #000;
+  margin: 7rem 4rem;
+  width: 100%;
+}
+.category-container .category-card-wrapper {
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+.category-container .category-card-wrapper .category-card {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  margin: 0 1rem;
+  display: flex;
+}
+.category-container .category-card-wrapper .category-card-left {
+  background-image: url(/Mammut-responsive/slike/category-card-backround/clothing.txt);
+  background-size: cover;
+  background-position: center;
+}
+.category-container .category-card-wrapper .category-card-mid {
+  background-image: url(/Mammut-responsive/slike/category-card-backround/footwear.txt);
+  background-size: cover;
+  background-position: center;
+}
+.category-container .category-card-wrapper .category-card-right {
+  background-image: url(/Mammut-responsive/slike/category-card-backround/equipment.txt);
+  background-size: cover;
+  background-position: center;
+}/*# sourceMappingURL=style.css.map */
