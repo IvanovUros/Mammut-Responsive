@@ -343,46 +343,43 @@ body {
     width: 100%;
   }
 }
-.hero-up .hero-img-wrapper {
+.hero-up .hero-img-wrapper-up {
   width: 100%;
   height: 68%;
   background-image: url(/Mammut-responsive/slike/hero-background/hero-background-up.txt);
   background-size: cover;
   background-position: center;
+  position: absolute;
 }
 @media screen and (min-width: 1024px) {
-  .hero-up .hero-img-wrapper {
+  .hero-up .hero-img-wrapper-up {
     height: 100%;
     width: 68%;
   }
 }
-.hero-up .hero-content-wrapper {
+.hero-up .hero-content-wrapper-up {
   width: 100%;
   height: 32%;
   position: absolute;
   bottom: 0;
 }
 @media screen and (min-width: 1024px) {
-  .hero-up .hero-content-wrapper {
+  .hero-up .hero-content-wrapper-up {
     height: 100%;
     width: 32%;
     position: relative;
+    position: absolute;
+    right: 0;
   }
 }
-.hero-up .hero-content-wrapper .hero-title {
+.hero-up .hero-content-wrapper-up .hero-title-up {
   font-size: 4.5rem;
   color: #fff;
   position: absolute;
   left: 5%;
   top: 20%;
 }
-@media screen and (min-width: 1024px) {
-  .hero-up .hero-content-wrapper .hero-title {
-    height: 100%;
-    width: 32%;
-  }
-}
-.hero-up .hero-content-wrapper .hero-text {
+.hero-up .hero-content-wrapper-up .hero-text-up {
   width: 60%;
   font-size: 1.6rem;
   color: #fff;
@@ -390,21 +387,88 @@ body {
   left: 5%;
   top: 40%;
 }
-.hero-up .hero-content-wrapper .class-list {
-  width: 30rem;
+.hero-up .hero-content-wrapper-up .class-list {
+  width: 300px;
   height: 4rem;
-  border: 1px solid green;
+  position: relative;
   position: absolute;
+  display: flex;
   left: 5%;
   top: 60%;
 }
-.hero-up .hero-content-wrapper .class-list .class-list-item {
-  width: 40%;
+@media screen and (min-width: 1024px) {
+  .hero-up .hero-content-wrapper-up .class-list {
+    left: 5%;
+  }
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item {
+  width: 100px;
   height: 100%;
   display: inline-block;
   display: flex;
   align-items: center;
-  margin-right: 2.5rem;
+  margin-right: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item .arrow-container-hero {
+  height: 100%;
+  width: 30%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  translate: -100%;
+  transition: all 0.3s ease-in-out;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item .arrow-container-hero .arrow-line-hero {
+  border-radius: 2px;
+  position: absolute;
+  width: 1.5rem;
+  height: 0.2rem;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item .arrow-container-hero .arrow-line-point-up-hero {
+  width: 0.5rem;
+  height: 0.15rem;
+  background-color: transparent;
+  position: absolute;
+  rotate: 45deg;
+  translate: 0.5rem -0.15rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item .arrow-container-hero .arrow-line-point-down-hero {
+  width: 0.5rem;
+  height: 0.15rem;
+  background-color: transparent;
+  position: absolute;
+  rotate: -45deg;
+  translate: 0.5rem 0.15rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item .class-list-item-text {
+  font-size: 1.3rem;
+  color: #fff;
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item:hover .arrow-container-hero {
+  translate: 0;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item:hover .arrow-container-hero .arrow-line-hero {
+  background-color: #fff;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item:hover .arrow-container-hero .arrow-line-point-up-hero {
+  background-color: #fff;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item:hover .arrow-container-hero .arrow-line-point-down-hero {
+  background-color: #fff;
+}
+.hero-up .hero-content-wrapper-up .class-list .class-list-item:hover .class-list-item-text {
+  translate: 3rem;
 }
 
 .category-container {
@@ -415,11 +479,23 @@ body {
   justify-content: center;
   position: relative;
 }
+@media screen and (min-width: 1024px) {
+  .category-container {
+    height: 45vh;
+  }
+}
 .category-container .category-container-heading {
   font-size: 2.5rem;
   color: #000;
   margin: 7rem 4rem;
   width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .category-container .category-container-heading {
+    width: 30%;
+    position: absolute;
+    left: 0;
+  }
 }
 .category-container .category-card-wrapper {
   width: 100%;
@@ -428,6 +504,14 @@ body {
   align-self: center;
   display: flex;
   justify-content: center;
+}
+@media screen and (min-width: 1024px) {
+  .category-container .category-card-wrapper {
+    width: 65%;
+    height: 65%;
+    position: absolute;
+    right: 0;
+  }
 }
 .category-container .category-card-wrapper .category-card {
   display: inline-block;
@@ -450,4 +534,135 @@ body {
   background-image: url(/Mammut-responsive/slike/category-card-backround/equipment.txt);
   background-size: cover;
   background-position: center;
+}
+
+.hero-mid {
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  position: relative;
+  background-color: #23293c;
+  display: flex;
+}
+
+.gender-category-container {
+  width: 100%;
+  height: 250vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 1024px) {
+  .gender-category-container {
+    height: 95vh;
+  }
+}
+.gender-category-container .gender-category-card-men {
+  width: 80%;
+  height: 100vh;
+  border: 1px solid black;
+  position: absolute;
+  background-image: url(/Mammut-responsive/slike/gender-category-background/men.txt);
+  background-size: cover;
+  background-position: center;
+  top: 20vh;
+}
+@media screen and (min-width: 1024px) {
+  .gender-category-container .gender-category-card-men {
+    height: 70vh;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .gender-category-container .gender-category-card-men {
+    left: 7%;
+    top: 5vh;
+  }
+}
+.gender-category-container .gender-category-card-women {
+  width: 80%;
+  height: 100vh;
+  border: 1px solid black;
+  position: absolute;
+  background-image: url(/Mammut-responsive/slike/gender-category-background/women.txt);
+  background-size: cover;
+  background-position: center;
+  bottom: 20vh;
+}
+@media screen and (min-width: 1024px) {
+  .gender-category-container .gender-category-card-women {
+    height: 70vh;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .gender-category-container .gender-category-card-women {
+    right: 7%;
+    bottom: 5vh;
+  }
+}
+
+.hero-btm {
+  width: 100%;
+  height: 170vh;
+  position: absolute;
+  position: relative;
+  background-color: #23293c;
+  display: flex;
+}
+@media screen and (min-width: 1024px) {
+  .hero-btm {
+    height: 95vh;
+    width: 100%;
+  }
+}
+.hero-btm .hero-img-wrapper-btm {
+  width: 100%;
+  height: 68%;
+  background-image: url(/Mammut-responsive/slike/hero-background/hero-background-dwn.png);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+@media screen and (min-width: 1024px) {
+  .hero-btm .hero-img-wrapper-btm {
+    height: 100%;
+    width: 68%;
+  }
+}
+.hero-btm .hero-content-wrapper-btm {
+  width: 100%;
+  height: 32%;
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (min-width: 1024px) {
+  .hero-btm .hero-content-wrapper-btm {
+    height: 100%;
+    width: 32%;
+    position: relative;
+    position: absolute;
+    right: 0;
+  }
+}
+.hero-btm .hero-content-wrapper-btm .hero-title-btm {
+  font-size: 4.5rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+}
+.hero-btm .hero-content-wrapper-btm .hero-text-btm {
+  width: 60%;
+  font-size: 1.6rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 40%;
+}
+@media screen and (min-width: 1024px) {
+  .hero-btm .hero-content-wrapper-btm .hero-text-btm {
+    top: 50%;
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */
