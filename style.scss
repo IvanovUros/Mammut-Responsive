@@ -60,6 +60,11 @@ body {
     position: absolute;
     left: 5%;
     top: 20%;
+    @media screen and (min-width: $laptop) {
+        top: 25%;
+        width: 50%;
+        right: 0;  
+    }
 }
 
 @mixin hero-text {
@@ -69,6 +74,9 @@ body {
     position: absolute;
     left: 5%;
     top: 40%;
+    @media screen and (min-width: $laptop) {
+         width: 90%;
+    }
 }
 
 @mixin background($background) {
@@ -88,35 +96,35 @@ body {
     transition: all .3s ease-in-out;
 }
 
-@mixin arrow-line($width, $height,) {
-    border-radius: 2px;
+@mixin arrow-line() {
+    border-radius: 1.5rem;
     position: absolute;
-    width: $width;
-    height: $height;
+    width: 2rem;
+    height: 0.2rem;
     background-color: transparent;
     transition: all .3s ease-in-out;
 }
 
-@mixin arrow-line-point-up($width, $height,) {
-    width: $width;
-    height: $height;
+@mixin arrow-line-point-up() {
+    width: 1rem;
+    height: 0.2rem;
     background-color: transparent;
     position: absolute;
     rotate: 45deg;
-    translate: $width calc($height * -1);
+    translate: 1rem -0.3rem;
     transition: all .3s ease-in-out;
-    border-radius: 2px;
+    border-radius: 2rem;
 }
 
-@mixin arrow-line-point-down($width, $height,) {
-    width: $width;
-    height: $height;
+@mixin arrow-line-point-down() {
+    width: 1rem;
+    height: 0.2rem;
     background-color: transparent;
     position: absolute;
     rotate: -45deg;
-    translate: $width $height;
+    translate: 1rem 0.3rem;
     transition: all .3s ease-in-out;
-    border-radius: 2px;
+    border-radius: 2rem;
 }
 
 @mixin translate0 {
@@ -438,6 +446,7 @@ body {
             top: 60%;
             @media screen and (min-width: $laptop) {
                 left: 5%;
+                top: 50%;
             }
             
             .class-list-item {
@@ -454,15 +463,15 @@ body {
                     @include arrow-container();
                      
                     .arrow-line-hero {
-                        @include arrow-line(1.5rem , 0.2rem)
+                        @include arrow-line()
                     }
                     
                     .arrow-line-point-up-hero {
-                        @include arrow-line-point-up(0.5rem , 0.15rem ,) 
+                        @include arrow-line-point-up() 
                     }
 
                     .arrow-line-point-down-hero {
-                        @include arrow-line-point-down(0.5rem , 0.15rem ,)  
+                        @include arrow-line-point-down()  
                     }
                 }
                 
@@ -490,7 +499,7 @@ body {
                 }
             }
             .class-list-item:hover .class-list-item-text {
-                translate: 3rem;
+                translate: 3.5rem;
             }
         }
     }
@@ -523,14 +532,14 @@ body {
 
     .category-card-wrapper {
         width: 100%;
-        height: 40%;
+        height: 30%;
         position: absolute;
         align-self: center;
         display: flex;
         justify-content: center;
         @media screen and (min-width: $laptop) {
             width: 65%;
-            height: 65%;
+            height: 50%;
             position: absolute;
             right: 0;
         }
@@ -566,7 +575,7 @@ body {
 
 .gender-category-container {
     width: 100%;
-    height: 250vh;
+    height: 230vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -575,8 +584,8 @@ body {
     }
 
     @mixin gender-category-card {
-        width: 80%;
-        height: 100vh;
+        width: 90%;
+        height: 90vh;
         border: 1px solid black;
         position: absolute;
         @media screen and (min-width: $laptop) {
@@ -628,6 +637,156 @@ body {
        }
    }
 }
+
+.gear-class-list-container {
+    width: 100%;
+    height: 65vh;
+    background-color: #fff;
+    position: relative;
+    @media screen and (min-width: $laptop) {
+        height: 30vh;
+    }
+
+    @mixin gear-class-list {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        @media screen and (min-width: $laptop) {
+            display: flex;
+            align-items: center;
+            height: 50%;
+            position: absolute;
+        }
+    }
+
+    .gear-class-list-switch {
+        @include gear-class-list();
+        bottom: 0;
+        display: none;
+        @media screen and (min-width: $laptop) {
+        }
+    }
+
+    .gear-class-list {
+        @include gear-class-list();
+    }
+    
+    .gear-class-list-item {
+        display: inline-block;
+        width: 100%;
+        height: calc(95%/3);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        @media screen and (min-width: $laptop) {
+            caret-color: 30%;
+            height: 100%;
+            position: relative;
+        }
+
+        .gear-class-list-item-text {
+            position: absolute;
+            font-size: 2rem;
+            left: 5%;
+            @media screen and (min-width: $laptop) {
+                font-size: 1.5rem;
+                left: 2%;
+            }
+        }
+
+        .gear-class-list-icon-wrapper {
+            width: 30rem;
+            height: 10rem;
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            @mixin gear-class-list-icon {
+                display: inline-block;
+                width: 8rem;
+                height: 8rem;
+                margin-right: 2rem;
+                background-color: #000;
+                border-radius: 50%;
+                @media screen and (min-width: $laptop) {
+                    width: 6rem;
+                    height: 6rem;
+                }
+            }
+
+            .gear-class-list-icon-left {
+                @include gear-class-list-icon();
+                transition: all .2s ease-in-out;
+                translate: 15rem;
+                @media screen and (min-width: $laptop) {
+                    translate: 23rem;
+                }
+            }
+
+            .gear-class-list-icon-mid {
+                @include gear-class-list-icon();
+                transition: all .25s ease-in-out;
+                translate: 15rem;
+                @media screen and (min-width: $laptop) {
+                    translate: 23rem;
+                }
+            }
+
+            .gear-class-list-icon-right {
+                @include gear-class-list-icon();
+                transition: all .3s ease-in-out;
+                translate: 15rem;
+                @media screen and (min-width: $laptop) {
+                    translate: 23rem;
+                }
+            }
+        }
+    }
+
+    .gear-class-list-item:hover {
+        .gear-class-list-icon-left {
+            translate: 8.5rem;
+        }
+
+        .gear-class-list-icon-mid {
+            translate: 8.5rem;
+        }
+
+        .gear-class-list-icon-right {
+            translate: 8.5rem;
+        }
+    }
+
+    @mixin border-line {
+        display: inline-block;
+        width: 90%;
+        height: 0.2rem;
+        margin: 0 5%;
+        background-color:  #b3b1b1 ;
+        border-radius: 2rem;
+    }
+
+    .border-line {
+        @include border-line();
+        @media screen and (min-width: $laptop) {
+            width: .2rem;
+            height: 80%;
+            margin: 0;
+        }
+    }
+
+    .border-line-switch {
+        @include border-line();
+        @media screen and (min-width: $laptop) {
+            display: none;
+        }
+    }
+}
+
+        
+
 
 
 
