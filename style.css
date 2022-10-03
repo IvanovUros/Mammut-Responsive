@@ -8,7 +8,7 @@
 body {
   font-size: 1.6rem;
   font-family: Arial, Helvetica, sans-serif;
-  height: 100rem;
+  height: 100%;
 }
 
 .main-header {
@@ -56,6 +56,7 @@ body {
   align-items: center;
   position: fixed;
   overflow: hidden;
+  z-index: 6;
 }
 @media screen and (min-width: 1024px) {
   .menu-btn-wrapper {
@@ -76,6 +77,7 @@ body {
   z-index: 5;
   transition: all 0.5s ease-in-out;
   translate: 0 100px;
+  cursor: pointer;
 }
 @media screen and (min-width: 1024px) {
   .menu-btn-wrapper .menu-btn {
@@ -94,6 +96,7 @@ body {
   border-radius: 2px;
   background-color: #000;
   position: absolute;
+  transition: all 0.3s ease-in-out;
 }
 @media screen and (min-width: 1024px) {
   .menu-btn-wrapper .menu-btn .menu-btn-burger-mid {
@@ -106,6 +109,7 @@ body {
   border-radius: 2px;
   background-color: #000;
   position: absolute;
+  transition: all 0.3s ease-in-out;
   top: 27px;
 }
 @media screen and (min-width: 1024px) {
@@ -120,6 +124,7 @@ body {
   border-radius: 2px;
   background-color: #000;
   position: absolute;
+  transition: all 0.3s ease-in-out;
   bottom: 27px;
 }
 @media screen and (min-width: 1024px) {
@@ -127,6 +132,27 @@ body {
     bottom: 3.5px;
     background-color: #fff;
   }
+}
+.menu-btn-wrapper .menu-btn.open .menu-btn-burger-mid {
+  background-color: transparent;
+}
+.menu-btn-wrapper .menu-btn.open .menu-btn-burger-top {
+  rotate: 45deg;
+  translate: 0 0.7rem;
+}
+.menu-btn-wrapper .menu-btn.open .menu-btn-burger-btm {
+  rotate: -45deg;
+  translate: 0 -0.7rem;
+}
+.menu-btn-wrapper .menu-btn.open-laptop .menu-btn-burger-top {
+  rotate: 45deg;
+  translate: 0 0.5rem;
+  background-color: black;
+}
+.menu-btn-wrapper .menu-btn.open-laptop .menu-btn-burger-btm {
+  rotate: -45deg;
+  translate: 0 -0.5rem;
+  background-color: black;
 }
 .menu-btn-wrapper .menu-loop-basket-wrapper {
   width: 0px;
@@ -329,6 +355,23 @@ body {
   }
 }
 
+.main-menu {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 5;
+}
+@media screen and (min-width: 1024px) {
+  .main-menu {
+    bottom: initial;
+    left: 0;
+    height: 100%;
+    width: 0%;
+  }
+}
+
 .hero-up {
   width: 100%;
   height: 170vh;
@@ -527,24 +570,37 @@ body {
     right: 0;
   }
 }
-.category-container .category-card-wrapper .category-card {
+@media screen and (min-width: 1366px) {
+  .category-container .category-card-wrapper {
+    height: 70%;
+  }
+}
+.category-container .category-card-wrapper .category-card-left {
   display: inline-block;
   width: 30%;
   height: 100%;
   margin: 0 1rem;
   display: flex;
-}
-.category-container .category-card-wrapper .category-card-left {
   background-image: url(/Mammut-responsive/slike/category-card-backround/clothing.txt);
   background-size: cover;
   background-position: center;
 }
 .category-container .category-card-wrapper .category-card-mid {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  margin: 0 1rem;
+  display: flex;
   background-image: url(/Mammut-responsive/slike/category-card-backround/footwear.txt);
   background-size: cover;
   background-position: center;
 }
 .category-container .category-card-wrapper .category-card-right {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  margin: 0 1rem;
+  display: flex;
   background-image: url(/Mammut-responsive/slike/category-card-backround/equipment.txt);
   background-size: cover;
   background-position: center;
