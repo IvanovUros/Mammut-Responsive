@@ -171,81 +171,107 @@ body {
         }
     }
 }
+
 .menu-btn-wrapper {
-    width: 100%;
+    width: 170px;
     height: 90px;
     position: relative;
     position: absolute;
     z-index: 1;
     bottom: 0px;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     overflow: hidden;
     z-index: 6;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     @media screen and (min-width: $laptop) {
         top: 0;
         height: 7rem;
         position: absolute;
+        width: 100%;
+        left: initial;
+        right: initial;
     }
 
-
-    .menu-btn {
+    .menu-btn-border {
+        position: relative;
+        position: absolute;
         width: 70px;
         height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: rgb(241, 240, 240);
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
         z-index: 5;
         transition: all .5s ease-in-out;
         translate: 0 100px;
-        cursor: pointer;
         @media screen and (min-width: $laptop) {
-            position: absolute;
-            left: 5%;
-            width: 20px;
-            height: 20px;
-            border-radius: 0;
             background-color: transparent;
+            left: 5%;
             translate: 0 -100px;
         }
 
-        @mixin menu-btn-burger {
+        .menu-btn {
             width: 20px;
-            height: 2px;
-            border-radius: 2px;
-            background-color: #000;
-            position: absolute;
-            transition: all .3s ease-in-out;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+            transition: all .5s ease-in-out;
+            cursor: pointer;
+            @media screen and (min-width: $laptop) {
+                position: absolute;
+                left: 5%;
+                width: 20px;
+                height: 20px;
+                border-radius: 0;
+                background-color: transparent;
+            }
+    
+            @mixin menu-btn-burger {
+                width: 20px;
+                height: 2px;
+                border-radius: 2px;
+                background-color: #000;
+                position: absolute;
+                transition: all .3s ease-in-out;
+            }
+    
+            .menu-btn-burger-mid {
+                @include menu-btn-burger();
+                @media screen and (min-width: $laptop) {
+                    display: none;
+                }
+            }
+    
+            .menu-btn-burger-top {
+                @include menu-btn-burger();
+                top: 0px;
+                @media screen and (min-width: $laptop) {
+                    top: 3.5px;
+                    background-color: #fff;
+                }
+            }
+    
+            .menu-btn-burger-btm {
+                @include menu-btn-burger();
+                bottom: 0px;
+                @media screen and (min-width: $laptop) {
+                    bottom: 3.5px;
+                    background-color: #fff;
+                }
+            }
         }
 
-        .menu-btn-burger-mid {
-            @include menu-btn-burger();
-            @media screen and (min-width: $laptop) {
-                display: none;
-            }
-        }
-        .menu-btn-burger-top {
-            @include menu-btn-burger();
-            top: 27px;
-            @media screen and (min-width: $laptop) {
-                top: 3.5px;
-                background-color: #fff;
-            }
-        }
-        .menu-btn-burger-btm {
-            @include menu-btn-burger();
-            bottom: 27px;
-            @media screen and (min-width: $laptop) {
-                bottom: 3.5px;
-                background-color: #fff;
-            }
-        }
     }
 
     .menu-btn.open {
@@ -254,30 +280,24 @@ body {
         }
         
         .menu-btn-burger-top {
-            rotate: 45deg;
-            translate: 0 .7rem;
+            rotate: -45deg;
+            translate: 0 9px; 
         }
 
         .menu-btn-burger-btm {
-            rotate: -45deg;
-            translate: 0 -.7rem;
+            rotate: 45deg;
+            translate: 0 -9px;
         }
         @media screen and (min-width: $laptop) {
-            
-        }
-    }
+            .menu-btn-burger-top {
+                translate: 0 5px;
+                background-color: black;
+            }
 
-    .menu-btn.open-laptop {
-        .menu-btn-burger-top {
-            rotate: 45deg;
-            translate: 0 .5rem;
-            background-color: black;
-        }
-
-        .menu-btn-burger-btm {
-            rotate: -45deg;
-            translate: 0 -.5rem;
-            background-color: black;
+            .menu-btn-burger-btm {
+                translate: 0 -5px;
+                background-color: black;
+            }
         }
     }
 
@@ -433,6 +453,7 @@ body {
                 left: 1px;
                 rotate: -10deg;
             }
+
             .basket-side-right {
                 @include basket-side();
                 right: 1px;
@@ -462,11 +483,149 @@ body {
     bottom: 0;
     background-color: #fff;
     z-index: 5;
+    overflow: scroll;
     @media screen and (min-width: $laptop) {
         bottom: initial;
         left: 0;
         height: 100%;
         width: 0%;
+        overflow: hidden;
+    }
+
+    .main-menu-nav {
+        width: 100%;
+        position: absolute;
+        top: 15rem;
+
+        .main-menu-main-nav-border-line {
+            display: inline-block;
+            position: relative;
+            width: 90%;
+            height: 0.2rem;
+            background-color: #d2d2d2;
+            left: 5%;
+            transition: all .4s ease-in-out;
+        }
+
+        .main-menu-nav-item {
+            width: 100%;
+            height: 10rem;
+            float: left;
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: all .4s ease-in-out;
+
+            .arrow-container-main-menu-nav {
+                @include arrow-container();
+                width: 10%;
+                left: 5%;
+
+                .arrow-line-main-menu-nav {
+                    @include arrow-line()
+                }
+                
+                .arrow-line-point-up-main-menu-nav {
+                    @include arrow-line-point-up() 
+                }
+
+                .arrow-line-point-down-main-menu-nav {
+                    @include arrow-line-point-down()  
+                }
+            }
+
+            .main-menu-nav-item-text {
+                font-size: 3rem;
+                color: #000;
+                transition: all .2s ease-in-out;
+            }
+
+            @mixin main-menu-nav-item-sub-extention {
+                width: 100%;
+                height: 0rem;
+                position: absolute;
+                top: 100%;
+                transition: all .4s ease-in-out;
+                background-size: cover;
+                background-position: center;
+                overflow: hidden
+            }
+
+            .main-menu-nav-item-sub-extention-clothing {
+                @include main-menu-nav-item-sub-extention();
+                background-image: url(/Mammut-responsive/slike/main-menu-background/clothing.txt);
+            }
+
+            .main-menu-nav-item-sub-extention-footwear {
+                @include main-menu-nav-item-sub-extention();
+                background-image: url(/Mammut-responsive/slike/main-menu-background/footwear.txt);
+            }
+
+            .main-menu-nav-item-sub-extention-equipment {
+                @include main-menu-nav-item-sub-extention();
+                background-image: url(/Mammut-responsive/slike/main-menu-background/equipment.txt);
+            }
+
+            .main-menu-sub-extention-nav-wrapper {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: relative;
+
+                .main-menu-sub-extention-nav {
+                    width: 100%;
+                    height: 60rem;
+                    position: absolute;
+                    top: 20%;
+
+                    .main-menu-sub-extention-nav-item {
+                        width: 95%;
+                        margin-left: 5%;
+                        height: 18rem;
+                        display: inline-block;
+                    }
+
+                    .main-menu-sub-extention-nav-border-line {
+                        display: inline-block;
+                        position: relative;
+                        width: 100%;
+                        height: 3rem;
+                    }
+                }
+            }
+        }
+
+        .main-menu-nav-item:hover {
+            .arrow-container-main-menu-nav {
+                @include translate0();
+
+                .arrow-line-main-menu-nav {
+                    @include arrow-hover(#000);
+                }
+                
+                .arrow-line-point-up-main-menu-nav  {
+                    @include arrow-hover(#000);
+                }
+                
+                .arrow-line-point-down-main-menu-nav  {
+                    @include arrow-hover(#000);
+                }
+            }
+
+            .main-menu-nav-item-text {
+                translate: 4rem;
+            }
+        }
+    }
+}
+
+.main-menu.open {
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    @media screen and (min-width: $laptop) {
+        height: 100%;
+        width: calc(100%/3);
     }
 }
 
@@ -612,10 +771,12 @@ body {
             @include category-card();
             @include background(url(/Mammut-responsive/slike/category-card-backround/clothing.txt))
         }
+
         .category-card-mid {
             @include category-card();
             @include background(url(/Mammut-responsive/slike/category-card-backround/footwear.txt))
         }
+
         .category-card-right {
             @include category-card();
             @include background(url(/Mammut-responsive/slike/category-card-backround/equipment.txt))
@@ -881,6 +1042,7 @@ body {
             left: 1rem;
             top: .5rem;
         }
+
         .footer-communications-nav-item-topr {
             @include footer-communications-nav-item();
             right: 1rem;
@@ -889,11 +1051,13 @@ body {
              right: 4rem;   
             }
         }
+
         .footer-communications-nav-item-btml {
             @include footer-communications-nav-item();
             left: 1rem;
             bottom: .5rem;
         }
+
         .footer-communications-nav-item-btmr {
             @include footer-communications-nav-item();
             right: 1rem;
