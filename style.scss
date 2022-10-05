@@ -489,7 +489,6 @@ body {
         left: 0;
         height: 100%;
         width: 0%;
-        overflow: hidden;
     }
 
     .main-menu-nav {
@@ -548,7 +547,11 @@ body {
                 transition: all .4s ease-in-out;
                 background-size: cover;
                 background-position: center;
-                overflow: hidden
+                overflow: hidden;
+                @media screen and (min-width: $laptop) {
+                    width: 0;
+                    left: 100%;;
+                }
             }
 
             .main-menu-nav-item-sub-extention-clothing {
@@ -556,15 +559,47 @@ body {
                 background-image: url(/Mammut-responsive/slike/main-menu-background/clothing.txt);
             }
 
+            .main-menu-nav-item-sub-extention-clothing.open {
+                height: 100rem;
+                @media screen and (min-width: $laptop) {
+                    left: 100%;
+                    height: 100vh;
+                    width: calc(100vw/3);
+                    margin-top: -25rem;
+                }
+            }
+
             .main-menu-nav-item-sub-extention-footwear {
                 @include main-menu-nav-item-sub-extention();
                 background-image: url(/Mammut-responsive/slike/main-menu-background/footwear.txt);
+            }
+
+            .main-menu-nav-item-sub-extention-footwear.open {
+                height: 100rem;
+                @media screen and (min-width: $laptop) {
+                    left: 100%;
+                    height: 100vh;
+                    width: calc(100vw/3);
+                    margin-top: -35.5rem;
+                }
             }
 
             .main-menu-nav-item-sub-extention-equipment {
                 @include main-menu-nav-item-sub-extention();
                 background-image: url(/Mammut-responsive/slike/main-menu-background/equipment.txt);
             }
+
+            .main-menu-nav-item-sub-extention-equipment.open {
+                height: 100rem;
+                @media screen and (min-width: $laptop) {
+                    left: 100%;
+                    height: 100vh;
+                    width: calc(100vw/3);
+                    margin-top: -46rem;
+                }
+            }
+
+          
 
             .main-menu-sub-extention-nav-wrapper {
                 width: 100%;
@@ -576,20 +611,86 @@ body {
                     width: 100%;
                     height: 60rem;
                     position: absolute;
-                    top: 20%;
+                    top: 15%;
+                    @media screen and (min-width: $laptop) {
+                        top: initial;
+                    }
 
                     .main-menu-sub-extention-nav-item {
                         width: 95%;
                         margin-left: 5%;
-                        height: 18rem;
+                        height: 25rem;
                         display: inline-block;
+                        display: flex;
+                        @media screen and (min-width: $laptop) {
+                            height: 20rem;
+                        }
+
+                        .arrow-container-main-menu-sub-extention-nav {
+                            @include arrow-container();
+                            width: 10%;
+                            height: 7rem;
+                            margin-top: 18rem;
+                            @media screen and (min-width: $laptop) {
+                                margin-top: 13rem;
+                            }
+
+                            .arrow-line-main-menu-sub-extention-nav {
+                                @include arrow-line();
+                            }
+
+                            .arrow-line-point-up-main-menu-sub-extention-nav {
+                                @include arrow-line-point-up() 
+                            }
+            
+                            .arrow-line-point-down-main-menu-sub-extention-nav {
+                                @include arrow-line-point-down()  
+                            }
+                        }
+
+                        .main-menu-sub-extention-nav-text {
+                            font-size: 2.8rem;
+                            color: #fff;
+                            position: absolute;
+                            margin-top: 20rem;
+                            transition: all .3s ease-in-out;
+                            white-space: nowrap;
+                            @media screen and (min-width: $laptop) {
+                                margin-top: 15rem;
+                            }
+                        }
                     }
+
+                    .main-menu-sub-extention-nav-item:hover {
+                        .arrow-container-main-menu-sub-extention-nav {
+                            @include translate0();
+            
+                            .arrow-line-main-menu-sub-extention-nav {
+                                @include arrow-hover(#fff);
+                            }
+                            
+                            .arrow-line-point-up-main-menu-sub-extention-nav  {
+                                @include arrow-hover(#fff);
+                            }
+                            
+                            .arrow-line-point-down-main-menu-sub-extention-nav  {
+                                @include arrow-hover(#fff);
+                            }
+                        }
+
+                        .main-menu-sub-extention-nav-text {
+                            translate: 5.5rem;
+                        }
+                    }
+
+
 
                     .main-menu-sub-extention-nav-border-line {
                         display: inline-block;
-                        position: relative;
-                        width: 100%;
-                        height: 3rem;
+                        width: 90%;
+                        margin-left: 5%;
+                        height: 0.2rem;
+                        background-color: #80898d;
                     }
                 }
             }
@@ -1371,6 +1472,8 @@ body {
         }
     }
 }
+
+
 
         
 

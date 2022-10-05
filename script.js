@@ -24,6 +24,9 @@ function overflowHidden(x) {
 function overflowInitial(x) {
   x.style.overflow = 'initial';
 }
+function overflowScroll(x) {
+  x.style.overflow = 'scroll';
+}
 
 let menuOpen = false;
 if(screenWidth < 1024) {
@@ -67,7 +70,22 @@ menuBtn.addEventListener('click', () =>{
       menuOpen = false;
       overflowInitial(body);
       mainMenu.classList.remove('open')
-    }
+      subExtentionClothing.classList.remove('open');
+      subExtentionFootwear.classList.remove('open');
+      subExtentionEquipment.classList.remove('open');
+      menuNavBorderLine.forEach(menuNavBorderLine => {
+        menuNavBorderLine.style.translate = '0 0';
+      });
+      menuNavItemClothing.style.translate = '0 0';
+      menuNavItemFootwear.style.translate = '0 0';
+      menuNavItemEquipment.style.translate = '0 0';
+      if (screenWidth < 1024) {
+        setTimeout (overflowInitial, 300, mainMenu);
+      } else {
+        setTimeout (overflowHidden, 300, mainMenu);
+      };
+      menuSubExtentionClothingOpen = false;
+    };
 });
 
 const menuNavItemClothing = document.getElementById('menuNavItemClothing');
@@ -79,58 +97,71 @@ const subExtentionClothing = document.getElementById('subExtentionClothing');
 const subExtentionFootwear = document.getElementById('subExtentionFootwear');
 const subExtentionEquipment = document.getElementById('subExtentionEquipment');
 
-
-
-menuNavItemClothing.addEventListener("mouseover", () => {
-  subExtentionClothing.style.height = '100rem';
-  subExtentionFootwear.style.height = '0rem';
-  menuNavItemFootwear.style.translate = '0 100rem';
-  menuNavItemEquipment.style.translate = '0 100rem';
-  subExtentionEquipment.style.height = '0rem';
-  menuNavBorderLine.forEach(menuNavBorderLine => {
-    menuNavBorderLine.style.translate = '0 100rem';
-  });
+let menuSubExtentionClothingOpen = false;
+menuNavItemClothing.addEventListener('mouseover', () => {
+  menuSubExtentionClothingOpen = true;
+  subExtentionClothing.classList.add ('open');
+  subExtentionFootwear.classList.remove('open');
+  subExtentionEquipment.classList.remove('open');
+  if (screenWidth < 1024) {
+    overflowScroll(mainMenu);
+    menuNavBorderLine.forEach(menuNavBorderLine => {
+      menuNavBorderLine.style.translate = '0 100rem';
+    });
+    menuNavItemFootwear.style.translate = '0 100rem';
+    menuNavItemEquipment.style.translate = '0 100rem';
+  } else {
+    overflowInitial(mainMenu);
+  }
 });
-menuNavItemFootwear.addEventListener("mouseover", () => {
-  subExtentionClothing.style.height = '0rem';
-  menuNavItemFootwear.style.translate = '0 0';
-  subExtentionFootwear.style.height = '100rem';
-  menuNavBorderLine[0].style.translate = '0 0';
-  menuNavBorderLine[1].style.translate = '0 100rem';
-  menuNavBorderLine[2].style.translate = '0 100rem';
-  subExtentionEquipment.style.height = '0rem';
-  menuNavItemEquipment.style.translate = '0 100rem';
+menuNavItemFootwear.addEventListener('mouseover', () => {
+  subExtentionClothing.classList.remove('open');
+  subExtentionFootwear.classList.add ('open');
+  subExtentionEquipment.classList.remove('open');
+  if (screenWidth < 1024) {
+    overflowScroll(mainMenu);
+    menuNavBorderLine[0].style.translate = '0 0';
+    menuNavBorderLine[1].style.translate = '0 100rem';
+    menuNavBorderLine[2].style.translate = '0 100rem';
+    menuNavItemClothing.style.translate = '0 0';
+    menuNavItemFootwear.style.translate = '0 0';
+    menuNavItemEquipment.style.translate = '0 100rem';
+  } else {
+    overflowInitial(mainMenu);
+  }
 });
-menuNavItemEquipment.addEventListener("mouseover", () => {
-  subExtentionClothing.style.height = '0rem';
-  subExtentionFootwear.style.height = '0rem';
-  subExtentionEquipment.style.height = '100rem';
-  menuNavItemEquipment.style.translate = '0 0';
-  menuNavBorderLine[2].style.translate = '0 100rem';
-  menuNavBorderLine[0].style.translate = '0 0';
-  menuNavBorderLine[1].style.translate = '0 0';
-  menuNavItemFootwear.style.translate = '0 0rem';
+menuNavItemEquipment.addEventListener('mouseover', () => {
+  subExtentionEquipment.classList.add ('open');
+  subExtentionClothing.classList.remove('open');
+  subExtentionFootwear.classList.remove('open');
+  if (screenWidth < 1024) {
+    overflowScroll(mainMenu);
+    menuNavBorderLine[2].style.translate = '0 100rem';
+    menuNavBorderLine[0].style.translate = '0 0';
+    menuNavBorderLine[1].style.translate = '0 0';
+    menuNavItemClothing.style.translate = '0 0';
+    menuNavItemFootwear.style.translate = '0 0';
+    menuNavItemEquipment.style.translate = '0 0';
+  } else {
+    overflowInitial(mainMenu);
+  }
 });
-mainMenuNavWrapper.addEventListener('mouseout', () => {
-  subExtentionClothing.style.height = '0rem';
-  subExtentionFootwear.style.height = '0rem';
-  subExtentionEquipment.style.height = '0rem';
-  menuNavItemClothing.style.translate = '0 0rem';
-  menuNavItemFootwear.style.translate = '0 0rem';
-  menuNavItemEquipment.style.translate = '0 0rem';
-  menuNavBorderLine.forEach(menuNavBorderLine => {
-    menuNavBorderLine.style.translate = '0 0rem';
-  });
+addEventListener('resize', () => {
+  if (menuSubExtentionClothingOpen) {
+    if (screenWidth < 1024) {
+      overflowScroll(mainMenu);
+      menuNavBorderLine.forEach(menuNavBorderLine => {
+        menuNavBorderLine.style.translate = '0 100rem';
+      });
+      menuNavItemFootwear.style.translate = '0 100rem';
+      menuNavItemEquipment.style.translate = '0 100rem';
+    } else {
+      overflowInitial(mainMenu);
+      menuNavBorderLine.forEach(menuNavBorderLine => {
+        menuNavBorderLine.style.translate = '0 0';
+      });
+      menuNavItemFootwear.style.translate = '0 0';
+      menuNavItemEquipment.style.translate = '0 0';
+    };
+  };
 });
-
-
-
-
-
-  
-
-
-
-
-
-
