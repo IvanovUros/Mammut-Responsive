@@ -483,7 +483,7 @@ body {
     bottom: 0;
     background-color: #fff;
     z-index: 5;
-    overflow: scroll;
+    overflow: hidden;
     @media screen and (min-width: $laptop) {
         bottom: initial;
         left: 0;
@@ -518,7 +518,7 @@ body {
             .arrow-container-main-menu-nav {
                 @include arrow-container();
                 width: 10%;
-                left: 5%;
+                margin-left: 5%;
 
                 .arrow-line-main-menu-nav {
                     @include arrow-line()
@@ -551,55 +551,57 @@ body {
                 @media screen and (min-width: $laptop) {
                     width: 0;
                     left: 100%;;
+                    height: 100vh;
                 }
             }
 
             .main-menu-nav-item-sub-extention-clothing {
                 @include main-menu-nav-item-sub-extention();
                 background-image: url(/Mammut-responsive/slike/main-menu-background/clothing.txt);
+                @media screen and (min-width: $laptop) {
+                    margin-top: -25rem;
+                }
             }
 
             .main-menu-nav-item-sub-extention-clothing.open {
                 height: 100rem;
                 @media screen and (min-width: $laptop) {
-                    left: 100%;
-                    height: 100vh;
                     width: calc(100vw/3);
-                    margin-top: -25rem;
+                    transition: width .4s ease-in-out;
                 }
             }
 
             .main-menu-nav-item-sub-extention-footwear {
                 @include main-menu-nav-item-sub-extention();
                 background-image: url(/Mammut-responsive/slike/main-menu-background/footwear.txt);
+                @media screen and (min-width: $laptop) {
+                    margin-top: -35.5rem;
+                }
             }
 
             .main-menu-nav-item-sub-extention-footwear.open {
                 height: 100rem;
                 @media screen and (min-width: $laptop) {
-                    left: 100%;
-                    height: 100vh;
                     width: calc(100vw/3);
-                    margin-top: -35.5rem;
+                    transition: width .4s ease-in-out;
                 }
             }
 
             .main-menu-nav-item-sub-extention-equipment {
                 @include main-menu-nav-item-sub-extention();
                 background-image: url(/Mammut-responsive/slike/main-menu-background/equipment.txt);
+                @media screen and (min-width: $laptop) {
+                    margin-top: -46.5rem;
+                }
             }
 
             .main-menu-nav-item-sub-extention-equipment.open {
                 height: 100rem;
                 @media screen and (min-width: $laptop) {
-                    left: 100%;
-                    height: 100vh;
                     width: calc(100vw/3);
-                    margin-top: -46rem;
+                    transition: width .4s ease-in-out;
                 }
             }
-
-          
 
             .main-menu-sub-extention-nav-wrapper {
                 width: 100%;
@@ -621,7 +623,9 @@ body {
                         margin-left: 5%;
                         height: 25rem;
                         display: inline-block;
+                        position: relative;
                         display: flex;
+                        transition: all .3s ease-in-out;
                         @media screen and (min-width: $laptop) {
                             height: 20rem;
                         }
@@ -659,6 +663,34 @@ body {
                                 margin-top: 15rem;
                             }
                         }
+
+                        @mixin main-menu-sub-sub-extention {
+                            width: 105%;
+                            height: 0;
+                            background-color: #fff;
+                            position: absolute;
+                            transition: all .3s ease-in-out;
+                            margin-left: -5%;
+                            margin-top: 25rem;
+                            @media screen and (min-width:$laptop) {
+                                height: 100vh;
+                                width: 0;
+                                margin-top:  0;
+                                margin-left: 100%;
+                            }
+                        }
+
+                        .main-menu-sub-sub-extention-clothing-shop-by-activity {
+                            @include main-menu-sub-sub-extention();
+                        }
+
+                        .main-menu-sub-sub-extention-clothing-men {
+                            @include main-menu-sub-sub-extention();
+                        }
+
+                        .main-menu-sub-sub-extention-clothing-women {
+                            @include main-menu-sub-sub-extention();
+                        }
                     }
 
                     .main-menu-sub-extention-nav-item:hover {
@@ -691,6 +723,7 @@ body {
                         margin-left: 5%;
                         height: 0.2rem;
                         background-color: #80898d;
+                        transition: all .3s ease-in-out;
                     }
                 }
             }
@@ -728,6 +761,14 @@ body {
         height: 100%;
         width: calc(100%/3);
     }
+}
+
+.main-menu.scroll {
+    overflow: auto;
+}
+
+.main-menu.initial {
+    overflow: initial;
 }
 
 .hero-up {
