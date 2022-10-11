@@ -16,27 +16,17 @@ const menuNavItemFootwear = document.getElementById('menuNavItemFootwear');
 const menuNavItemEquipment = document.getElementById('menuNavItemEquipment');
 const menuNavBorderLine = Array.from(document.getElementsByClassName('main-menu-main-nav-border-line'));
 
-const subExtentionClothing = document.getElementById('subExtentionClothing');
-const subExtentionFootwear = document.getElementById('subExtentionFootwear');
-const subExtentionEquipment = document.getElementById('subExtentionEquipment');
-
-const subExtentionClothingShopByActivity = document.getElementById('subExtentionClothingShopByActivity');
-const subExtentionClothingMen = document.getElementById('subExtentionClothingMen');
-const subExtentionClothingWomen = document.getElementById('subExtentionClothingWomen');
-const subExtentionBorderLine = Array.from(document.getElementsByClassName('main-menu-sub-extention-nav-border-line'));
-
-const clothingSubSubExtentionShopByActivity = document.getElementById('clothingSubSubExtentionShopByActivity');
-const clothingSubSubExtentionMen = document.getElementById('clothingSubSubExtentionMen');
-const clothingSubSubExtentionWomen = document.getElementById('clothingSubSubExtentionWomen');
-
-const mainMenuSubExtentionNavWrapper = Array.from(document.getElementsByClassName('main-menu-sub-extention-nav-wrapper'));
-
-
+const mainMenuSubExtentionClothing = document.getElementById('mainMenuSubExtentionClothing');
+const mainMenuSubExtentionFootwear = document.getElementById('mainMenuSubExtentionFootwear');
+const mainMenuSubExtentionEquipment = document.getElementById('mainMenuSubExtentionEquipment');
 
 let screenWidth = screen.width;
 let subExtentionClothingOpen = false;
 let subExtentionFootwearOpen = false;
 let subExtentionEquipmentOpen = false;
+let subSubExtentionClothingShopByActivityOpen = false;
+let subSubExtentionClothingMenOpen = false;
+let subSubExtentionClothingWomenOpen = false;
 
 window.addEventListener('resize', () => {
   screenWidth = screen.width;
@@ -45,8 +35,8 @@ window.addEventListener('resize', () => {
 function overflowHidden(x) {
   x.style.overflow = 'hidden';
 };
-function overflowInitial(x) {
-  x.style.overflow = 'initial';
+function overflowVisible(x) {
+  x.style.overflow = 'visible';
 };
 function overflowScroll(x) {
   x.style.overflow = 'scroll';
@@ -92,211 +82,221 @@ menuBtn.addEventListener('click', () =>{
       }, 300);
       menuBtn.classList.remove('open');
       menuOpen = false;
-      overflowInitial(body);
+      overflowVisible(body);
       mainMenu.classList.remove('open');
-      subExtentionClothing.classList.remove('open');
-      subExtentionFootwear.classList.remove('open');
-      subExtentionEquipment.classList.remove('open');
       setTimeout(function () {
         mainMenu.classList.remove('initial');
         mainMenu.classList.remove('scroll');
       }, 250);
-      subExtentionClothingOpen = false;
-      subExtentionFootwearOpen = false;
-      subExtentionEquipmentOpen = false;
-      menuNavBorderLine.forEach(menuNavBorderLine => {
-        menuNavBorderLine.style.translate = '0 0';
-      });
-      menuNavItemClothing.style.translate = '0 0';
-      menuNavItemFootwear.style.translate = '0 0';
-      menuNavItemEquipment.style.translate = '0 0';
-      subExtentionBorderLine.forEach(subExtentionBorderLine => {
-        subExtentionBorderLine.style.translate = '0 0';
-      });
-      clothingSubSubExtentionShopByActivity.style.height = '0';
-      clothingSubSubExtentionMen.style.height = '0';
-      clothingSubSubExtentionWomen.style.height = '0';
-      subExtentionClothingMen.style.translate = '0 0';
-      subExtentionClothingWomen.style.translate = '0 0';
     };
+    mainMenuClosingAnimation();
 });
-menuNavItemClothing.addEventListener('mouseover', () => {
-  if (screenWidth < 1024) {
-    subExtentionClothing.style.transition = 'all .4s ease-in-out';
-    subExtentionFootwear.style.transition = 'all .4s ease-in-out';
-    subExtentionEquipment.style.transition = 'all .4s ease-in-out';
-    mainMenu.classList.add('scroll');
+function mainMenuClosingAnimation() {
+  menuNavBorderLine.forEach(menuNavBorderLine => {
+    menuNavBorderLine.style.translate = '0 0';
+  });
+  menuNavItemClothing.style.translate = '0 0';
+  menuNavItemFootwear.style.translate = '0 0';
+  menuNavItemEquipment.style.translate = '0 0';
+  mainMenuSubExtentionClothing.classList.remove('open');
+  mainMenuSubExtentionFootwear.classList.remove('open');
+  mainMenuSubExtentionEquipment.classList.remove('open');
+  setTimeout(overflowHidden, 300, mainMenu);
+  subExtentionBorderLine.forEach(subExtentionBorderLine => {
+    subExtentionBorderLine.style.translate = '0 0';
+    mainMenuSubItemClothingShopByActivity.style.translate = '0 0';
+    mainMenuSubItemClothingMen.style.translate = '0 0';
+    mainMenuSubItemClothingWomen.style.translate = '0 0';
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.remove('open');
+  });
+};
+
+function mainMenuSubExtentionOpeningAnimationMobile () {
+  if (subExtentionClothingOpen) {
+    overflowScroll(mainMenu);
     menuNavBorderLine.forEach(menuNavBorderLine => {
       menuNavBorderLine.style.translate = '0 100rem';
     });
     menuNavItemFootwear.style.translate = '0 100rem';
     menuNavItemEquipment.style.translate = '0 100rem';
-  } else {
-    mainMenu.classList.add ('initial');
+    mainMenuSubExtentionClothing.classList.add('open');
+    mainMenuSubExtentionFootwear.classList.remove('open');
+    mainMenuSubExtentionEquipment.classList.remove('open');
   };
-  subExtentionClothing.classList.add('open');
-  subExtentionFootwear.classList.remove('open');
-  subExtentionEquipment.classList.remove('open');
-  subExtentionClothingOpen = true;
-  subExtentionFootwearOpen = false;
-  subExtentionEquipmentOpen = false;
-});
-menuNavItemFootwear.addEventListener('mouseover', () => {
-  if (screenWidth < 1024) {
-    subExtentionClothing.style.transition = 'all .4s ease-in-out';
-    subExtentionFootwear.style.transition = 'all .4s ease-in-out';
-    subExtentionEquipment.style.transition = 'all .4s ease-in-out';
-    mainMenu.classList.add('scroll');
+  if (subExtentionFootwearOpen) {
+    overflowScroll(mainMenu);
     menuNavBorderLine[0].style.translate = '0 0';
     menuNavBorderLine[1].style.translate = '0 100rem';
     menuNavBorderLine[2].style.translate = '0 100rem';
     menuNavItemClothing.style.translate = '0 0';
     menuNavItemFootwear.style.translate = '0 0';
     menuNavItemEquipment.style.translate = '0 100rem';
-  } else {
-    mainMenu.classList.add('initial');
+    mainMenuSubExtentionClothing.classList.remove('open');
+    mainMenuSubExtentionFootwear.classList.add('open');
+    mainMenuSubExtentionEquipment.classList.remove('open');
   };
-  subExtentionFootwear.classList.add('open');
-  subExtentionClothing.classList.remove('open');
-  subExtentionEquipment.classList.remove('open');
-  subExtentionClothingOpen = false;
-  subExtentionFootwearOpen = true;
-  subExtentionEquipmentOpen = false;
-});
-menuNavItemEquipment.addEventListener('mouseover', () => {
-  if (screenWidth < 1024) {
-    subExtentionClothing.style.transition = 'all .4s ease-in-out';
-    subExtentionFootwear.style.transition = 'all .4s ease-in-out';
-    subExtentionEquipment.style.transition = 'all .4s ease-in-out';
-    mainMenu.classList.add('scroll');
+  if (subExtentionEquipmentOpen) {
+    overflowScroll(mainMenu);
     menuNavBorderLine[0].style.translate = '0 0';
-    menuNavBorderLine[1].style.translate = '0 0';
+    menuNavBorderLine[1].style.translate = '0 0rem';
     menuNavBorderLine[2].style.translate = '0 100rem';
     menuNavItemClothing.style.translate = '0 0';
     menuNavItemFootwear.style.translate = '0 0';
     menuNavItemEquipment.style.translate = '0 0';
-  } else {
-    mainMenu.classList.add('initial');
+    mainMenuSubExtentionClothing.classList.remove('open');
+    mainMenuSubExtentionFootwear.classList.remove('open');
+    mainMenuSubExtentionEquipment.classList.add('open');
   };
-  subExtentionEquipment.classList.add('open');
-  subExtentionClothing.classList.remove('open');
-  subExtentionFootwear.classList.remove('open');
+};
+function mainMenuSubExtentionOpeningAnimationLaptop() {
+  if (subExtentionClothingOpen) {
+    overflowVisible(mainMenu);
+    mainMenuSubExtentionClothing.classList.add('open');
+    mainMenuSubExtentionFootwear.classList.remove('open');
+    mainMenuSubExtentionEquipment.classList.remove('open');
+  }
+  if (subExtentionFootwearOpen) {
+    overflowVisible(mainMenu);
+    mainMenuSubExtentionClothing.classList.remove('open');
+    mainMenuSubExtentionFootwear.classList.add('open');
+    mainMenuSubExtentionEquipment.classList.remove('open');
+  }
+  if (subExtentionEquipmentOpen) {
+    overflowVisible(mainMenu);
+    mainMenuSubExtentionClothing.classList.remove('open');
+    mainMenuSubExtentionFootwear.classList.remove('open');
+    mainMenuSubExtentionEquipment.classList.add('open');
+  }
+};
+menuNavItemClothing.addEventListener('mouseover',() => {
+  subExtentionClothingOpen = true;
+  subExtentionFootwearOpen = false;
+  subExtentionEquipmentOpen = false;
+  if (screenWidth < 1024) {
+    mainMenuSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubExtentionOpeningAnimationLaptop();
+  }
+});
+menuNavItemFootwear.addEventListener('mouseover',() => {
+  subExtentionClothingOpen = false;
+  subExtentionFootwearOpen = true;
+  subExtentionEquipmentOpen = false;
+  if (screenWidth < 1024) {
+    mainMenuSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubExtentionOpeningAnimationLaptop();
+  }
+});
+menuNavItemEquipment.addEventListener('mouseover',() => {
   subExtentionClothingOpen = false;
   subExtentionFootwearOpen = false;
   subExtentionEquipmentOpen = true;
-});
-
-window.addEventListener('resize', () => {
-  if (screenWidth >= 1024) {
-    if (subExtentionClothingOpen) {
-      mainMenu.classList.remove('scroll');
-      mainMenu.classList.add('initial');
-      menuNavBorderLine.forEach(menuNavBorderLine => {
-        menuNavBorderLine.style.translate = '0 0';
-      });
-      menuNavItemClothing.style.translate = '0 0';
-      menuNavItemFootwear.style.translate = '0 0';
-      menuNavItemEquipment.style.translate = '0 0';
-    };
-    if (subExtentionFootwearOpen) {
-      mainMenu.classList.remove('scroll');
-      mainMenu.classList.add('initial');
-      menuNavBorderLine.forEach(menuNavBorderLine => {
-        menuNavBorderLine.style.translate = '0 0';
-      });
-      menuNavItemClothing.style.translate = '0 0';
-      menuNavItemFootwear.style.translate = '0 0';
-      menuNavItemEquipment.style.translate = '0 0';
-    };
-    if (subExtentionEquipmentOpen) {
-      mainMenu.classList.remove('scroll');
-      mainMenu.classList.add('initial');
-      menuNavBorderLine.forEach(menuNavBorderLine => {
-        menuNavBorderLine.style.translate = '0 0';
-      });
-      menuNavItemClothing.style.translate = '0 0';
-      menuNavItemFootwear.style.translate = '0 0';
-      menuNavItemEquipment.style.translate = '0 0';
-    };
-  } else {
-    if (subExtentionClothingOpen) {
-      mainMenu.classList.remove('initial');
-      mainMenu.classList.add('scroll');
-      menuNavBorderLine.forEach(menuNavBorderLine => {
-        menuNavBorderLine.style.translate = '0 100rem';
-      });
-      menuNavItemFootwear.style.translate = '0 100rem';
-      menuNavItemEquipment.style.translate = '0 100rem';
-    };
-    if (subExtentionFootwearOpen) {
-      mainMenu.classList.remove('initial');
-      mainMenu.classList.add('scroll');
-      menuNavBorderLine[0].style.translate = '0 0';
-      menuNavBorderLine[1].style.translate = '0 100rem';
-      menuNavBorderLine[2].style.translate = '0 100rem';
-      menuNavItemEquipment.style.translate = '0 100rem';
-    };
-    if (subExtentionEquipmentOpen) {
-      mainMenu.classList.remove('initial');
-      mainMenu.classList.add('scroll');
-      menuNavBorderLine[0].style.translate = '0 0';
-      menuNavBorderLine[1].style.translate = '0 0';
-      menuNavBorderLine[2].style.translate = '0 100rem';
-      
-    };
-  };
-});
-subExtentionClothingShopByActivity.addEventListener('mouseover', () => {
   if (screenWidth < 1024) {
-    subExtentionClothing.style.overflow = 'auto';
-    mainMenuSubExtentionNavWrapper[0].style.overflow = 'auto';
-    subExtentionBorderLine.forEach(subExtentionBorderLine => {
-    subExtentionBorderLine.style.translate = '0 40rem';
-    });
-    subExtentionClothingMen.style.translate = '0 40rem';
-    subExtentionClothingWomen.style.translate = '0 40rem';
-    clothingSubSubExtentionShopByActivity.style.height = '40rem';
-    clothingSubSubExtentionMen.style.height = '0';
-    clothingSubSubExtentionWomen.style.height = '0';
+    mainMenuSubExtentionOpeningAnimationMobile();
   } else {
-    subExtentionClothing.style.overflow = 'visible';
-    clothingSubSubExtentionShopByActivity.style.width = 'calc(100vw/3)';
+    mainMenuSubExtentionOpeningAnimationLaptop();
   }
 });
-subExtentionClothingMen.addEventListener('mouseover', () => {
-  if (screenWidth < 1024) {
-    subExtentionClothing.style.overflow = 'auto';
-    subExtentionClothingMen.style.translate = '0 0';
-    subExtentionClothingWomen.style.translate = '0 40rem';
+
+
+const subExtentionBorderLine = Array.from(document.getElementsByClassName('main-menu-sub-extention-border-line'));
+const mainMenuSubItemClothingShopByActivity = document.getElementById('mainMenuSubItemClothingShopByActivity');
+const mainMenuSubItemClothingMen = document .getElementById('mainMenuSubItemClothingMen');
+const mainMenuSubItemClothingWomen = document .getElementById('mainMenuSubItemClothingWomen');
+const mainMenuSubSubExtentionNavClothingShopByActivity = document.querySelector('.main-menu-sub-sub-nav-clothing-shop-by-activity');
+const mainMenuSubSubExtentionNavClothingMen = document.querySelector('.main-menu-sub-sub-nav-clothing-men');
+const mainMenuSubSubExtentionNavClothingWomen = document.querySelector('.main-menu-sub-sub-nav-clothing-women');
+
+function mainMenuSubSubExtentionOpeningAnimationMobile () {
+  if (subSubExtentionClothingShopByActivityOpen) {
+    overflowScroll(mainMenuSubExtentionClothing);
+    subExtentionBorderLine[0].style.translate = '0 60rem';
+    subExtentionBorderLine[1].style.translate = '0 60rem';
+    subExtentionBorderLine[2].style.translate = '0 60rem';
+    mainMenuSubItemClothingMen.style.translate = '0 60rem';
+    mainMenuSubItemClothingWomen.style.translate = '0 60rem';
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.add('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.remove('open');
+  }
+  if (subSubExtentionClothingMenOpen) {
+    overflowScroll(mainMenuSubExtentionClothing);
     subExtentionBorderLine[0].style.translate = '0 0';
-    subExtentionBorderLine[1].style.translate = '0 40rem';
-    subExtentionBorderLine[2].style.translate = '0 40rem';
-  
-    clothingSubSubExtentionShopByActivity.style.height = '0';
-    clothingSubSubExtentionMen.style.height = '40rem';
-    clothingSubSubExtentionWomen.style.height = '0';
-  } else {
-
+    subExtentionBorderLine[1].style.translate = '0 60rem';
+    subExtentionBorderLine[2].style.translate = '0 60rem';
+    mainMenuSubItemClothingShopByActivity.style.translate = '0 0';
+    mainMenuSubItemClothingMen.style.translate = '0 0';
+    mainMenuSubItemClothingWomen.style.translate = '0 60rem';
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.add('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.remove('open');
   }
-
-});
-subExtentionClothingWomen.addEventListener('mouseover', () => {
-  if (screenWidth < 1024) {
-    subExtentionClothing.style.overflow = 'auto';
-    subExtentionClothingMen.style.translate = '0 0';
-    subExtentionClothingWomen.style.translate = '0 0';
+  if (subSubExtentionClothingWomenOpen) {
+    overflowScroll(mainMenuSubExtentionClothing);
     subExtentionBorderLine[0].style.translate = '0 0';
     subExtentionBorderLine[1].style.translate = '0 0';
-    subExtentionBorderLine[2].style.translate = '0 40rem';
+    subExtentionBorderLine[2].style.translate = '0 60rem';
+    mainMenuSubItemClothingShopByActivity.style.translate = '0 0';
+    mainMenuSubItemClothingMen.style.translate = '0 0';
+    mainMenuSubItemClothingWomen.style.translate = '0 0';
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.add('open');
+  }
+};
+function mainMenuSubSubExtentionOpeningAnimationLaptop () {
+  if (subSubExtentionClothingShopByActivityOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.add('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.remove('open');
+  };
+  if(subSubExtentionClothingMenOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.add('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.remove('open');
+  };
+  if(subSubExtentionClothingWomenOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+    mainMenuSubSubExtentionNavClothingShopByActivity.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingMen.classList.remove('open');
+    mainMenuSubSubExtentionNavClothingWomen.classList.add('open');
+  };
+};
 
-    clothingSubSubExtentionShopByActivity.style.height = '0';
-    clothingSubSubExtentionMen.style.height = '0';
-    clothingSubSubExtentionWomen.style.height = '40rem';
+mainMenuSubItemClothingShopByActivity.addEventListener('mouseover', () => {
+  subSubExtentionClothingShopByActivityOpen = true;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingWomenOpen = false;
+  if (screenWidth < 1024) {
+    mainMenuSubSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubSubExtentionOpeningAnimationLaptop();
   }
 });
-
-
-
-
+mainMenuSubItemClothingMen.addEventListener('mouseover', () => {
+  subSubExtentionClothingShopByActivityOpen = false;
+  subSubExtentionClothingMenOpen = true;
+  subSubExtentionClothingWomenOpen = false;
+  if (screenWidth < 1024) {
+    mainMenuSubSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubSubExtentionOpeningAnimationLaptop();
+  }
+});
+mainMenuSubItemClothingWomen.addEventListener('mouseover', () => {
+  subSubExtentionClothingShopByActivityOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingWomenOpen = true;
+  if (screenWidth < 1024) {
+    mainMenuSubSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubSubExtentionOpeningAnimationLaptop();
+  }
+});
 
 
