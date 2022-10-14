@@ -144,6 +144,7 @@ body {
     justify-content: center;
     position: relative;
     position: absolute;
+    z-index: 10;
 
     .overhead-bar {
         width: 0%;
@@ -152,7 +153,7 @@ body {
         border-radius: 3px;
         position: absolute;
         position: fixed;
-        z-index: 10;
+        z-index: 50;
         transition: all 1s ease-in-out;
     }
 
@@ -184,7 +185,7 @@ body {
     align-items: center;
     position: fixed;
     overflow: hidden;
-    z-index: 6;
+    z-index: 10;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -225,7 +226,8 @@ body {
             align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 5;
+            z-index: 50;
+            
             transition: all .5s ease-in-out;
             cursor: pointer;
             @media screen and (min-width: $laptop) {
@@ -548,6 +550,7 @@ body {
                 top: 100%;
                 transition: height .4s ease-in-out;
                 overflow: hidden;
+                z-index: 10;
                 @media screen and (min-width: $laptop) {
                     width: 0;
                     height: 100vh;
@@ -566,9 +569,12 @@ body {
             
             .main-menu-sub-extention-clothing.open {
                 height: 100rem;
+                z-index: 20;
+                overflow: hidden;
                 @media screen and (min-width: $laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
+                    z-index: 20;
                 }
             }
 
@@ -582,9 +588,11 @@ body {
 
             .main-menu-sub-extention-footwear.open {
                 height: 100rem;
+                z-index: 20;
                 @media screen and (min-width:$laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
+                    z-index: 20;
                 }
             }
 
@@ -598,9 +606,11 @@ body {
 
             .main-menu-sub-extention-equipment.open {
                 height: 100rem;
+                z-index: 20;
                 @media screen and (min-width:$laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
+                    z-index: 20;
                 }
             }
 
@@ -622,6 +632,7 @@ body {
                 height: 20rem;
                 margin-top: 1rem;
                 position: relative;
+                z-index: 30;
                 transition: all .4s ease-in-out;
             }
 
@@ -631,6 +642,7 @@ body {
                 height: 10rem;
                 margin-top: .5rem;
                 position: relative;
+                z-index: 30;
                 transition: all .4s ease-in-out;
             }
 
@@ -692,7 +704,8 @@ body {
                 background-color: #fff;
                 position: absolute;
                 top: 100%;
-                z-index: 15;
+                z-index: 30;
+                overflow: hidden;
                 @media screen and (min-width: $laptop) {
                     width: 0;
                     height: 100vh;
@@ -703,7 +716,7 @@ body {
             }
 
             .main-menu-sub-sub-nav-clothing-shop-by-activity.open {
-                height: 60rem;
+                height: 40rem;
                 @media screen and (min-width: $laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
@@ -716,18 +729,21 @@ body {
                 transition: height .4s ease-in-out;
                 background-color: #fff;
                 position: absolute;
+                z-index: 30; 
                 top: 100%;
+                overflow: hidden;
                 @media screen and (min-width: $laptop) {
                     width: 0;
                     height: 100vh;
                     transition: width .4s ease-in-out;
                     left: 100%;
-                    margin-top: -42rem;
+                    margin-top: -42.5rem;
+                    z-index: 30;      
                 }
             }
 
             .main-menu-sub-sub-nav-clothing-men.open {
-                height: 60rem;
+                height: 55rem;
                 @media screen and (min-width: $laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
@@ -740,7 +756,9 @@ body {
                 transition: height .4s ease-in-out;
                 background-color: #fff;
                 position: absolute;
+                z-index: 9;
                 top: 100%;
+                overflow: hidden;
                 @media screen and (min-width: $laptop) {
                     width: 0;
                     height: 100vh;
@@ -751,11 +769,134 @@ body {
             }
 
             .main-menu-sub-sub-nav-clothing-women.open {
-                height: 60rem;
+                height: 55rem;
                 @media screen and (min-width: $laptop) {
                     height: 100vh;
                     width: calc(100vw/3);
                 }
+            }
+
+            .main-menu-sub-sub-nav-footwear-shop-by-activity {
+                width: 100%;
+                height: 0;
+                transition: height .4s ease-in-out;
+                background-color: #fff;
+                position: absolute;
+                z-index: 9;
+                top: 100%;
+                z-index: 15;
+                overflow: hidden;
+                @media screen and (min-width: $laptop) {
+                    width: 0;
+                    height: 100vh;
+                    transition: width .4s ease-in-out;
+                    left: 100%;
+                    margin-top: -21.5rem;
+                }
+            }
+
+            .main-menu-sub-sub-nav-footwear-shop-by-activity.open {
+                height: 25rem;
+                @media screen and (min-width: $laptop) {
+                    height: 100vh;
+                    width: calc(100vw/3);
+                }
+            }
+
+            .main-menu-sub-sub-nav-footwear-men {
+                width: 100%;
+                height: 0;
+                transition: height .4s ease-in-out;
+                background-color: #fff;
+                position: absolute;
+                z-index: 9;
+                top: 100%;
+                overflow: hidden;
+                @media screen and (min-width: $laptop) {
+                    width: 0;
+                    height: 100vh;
+                    transition: width .4s ease-in-out;
+                    left: 100%;
+                    margin-top: -42.5rem;
+                }
+            }
+
+            .main-menu-sub-sub-nav-footwear-men.open {
+                height: 40rem;
+                @media screen and (min-width: $laptop) {
+                    height: 100vh;
+                    width: calc(100vw/3);
+                }
+            }
+
+            .main-menu-sub-sub-nav-footwear-women {
+                width: 100%;
+                height: 0;
+                transition: height .4s ease-in-out;
+                background-color: #fff;
+                position: absolute;
+                z-index: 9;
+                top: 100%;
+                overflow: hidden;
+                @media screen and (min-width: $laptop) {
+                    width: 0;
+                    height: 100vh;
+                    transition: width .4s ease-in-out;
+                    left: 100%;
+                    margin-top: -63.6rem;
+                }
+            }
+
+            .main-menu-sub-sub-nav-footwear-women.open {
+                height: 35rem;
+                @media screen and (min-width: $laptop) {
+                    height: 100vh;
+                    width: calc(100vw/3);
+                }
+            }
+
+            .main-menu-sub-sub-nav-equipment-shop-by-activity {
+                width: 100%;
+                height: 0;
+                transition: height .4s ease-in-out;
+                background-color: #fff;
+                position: absolute;
+                z-index: 9;
+                top: 100%;
+                overflow: hidden;
+                @media screen and (min-width: $laptop) {
+                    width: 0;
+                    height: 100vh;
+                    transition: width .4s ease-in-out;
+                    left: 100%;
+                    margin-top: -10.5rem;
+                }
+            }
+            
+            .main-menu-sub-sub-nav-equipment-shop-by-activity.open {
+                height: 50rem;
+                @media screen and (min-width: $laptop) {
+                    height: 100vh;
+                    width: calc(100vw/3);
+                }
+            }
+
+            .main-menu-sub-sub-nav-item {
+                display: inline-block;
+                width: 90%;
+                margin-left: 5%;
+                height: 7rem;
+                z-index: 30;
+            }
+
+            .main-menu-sub-sub-nav-border-line {
+                display: inline-block;
+                width: 90%;
+                height: 0.2rem;
+                border-radius: 2px;
+                margin-left: 5%;
+                background-color: #000;
+                z-index: 30;
             }
 
         }
@@ -824,6 +965,23 @@ body {
             .main-menu-nav-item-text {
                 translate: 4rem;
             }
+        }
+
+        .main-menu-sub-sub-extention-background-clothing,
+        .main-menu-sub-sub-extention-background-footwear,
+        .main-menu-sub-sub-extention-background-equipment {
+            width: 0;
+            height: 100vh;
+            position: absolute;
+            z-index: inherit;
+            background-color: #fff;
+            left: 100%;
+            transition: width .4s ease-in-out;
+        }
+        .main-menu-sub-sub-extention-background-clothing.open,
+        .main-menu-sub-sub-extention-background-footwear.open,
+        .main-menu-sub-sub-extention-background-equipment.open {
+            width: calc(100vw/3);
         }
     }
 }
