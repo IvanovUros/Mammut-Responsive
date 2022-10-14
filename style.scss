@@ -67,6 +67,9 @@ body {
         width: 70%;
         right: 0;  
     }
+    @media screen and (min-width: $desktop) {
+        font-size: 5rem;       
+    }
 }
 
 @mixin hero-text {
@@ -1202,6 +1205,8 @@ body {
             height: 100%;
             margin: 0 1rem;
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .category-card-left {
@@ -1218,16 +1223,35 @@ body {
             @include category-card();
             @include background(url(/Mammut-responsive/slike/category-card-backround/equipment.txt))
         }
+
+        .category-card-text {
+            font-size: 2rem;
+            color: #fff;
+        }
     }
 }
 
 .hero-mid {
-    width: 100%;
-    height: 90vh;
-    position: absolute;
-    position: relative;
-    background-color: $primary-color;
-    display: flex;
+    @include hero();
+
+    .hero-img-wrapper-mid {
+        @include hero-img-wrapper(url(/Mammut-responsive/slike/hero-background/hero-background-mid.txt));
+    }
+
+    .hero-content-wrapper-mid {
+        @include hero-content-wrapper();
+
+        .hero-title-mid {
+            @include hero-title();
+        }
+        .hero-text-mid {
+            @include hero-text();
+            top: 40%;
+            @media screen and (min-width:$laptop) {
+                top: 60%;
+            }
+        }
+    }
 }
 
 .gender-category-container {
@@ -1243,8 +1267,9 @@ body {
     @mixin gender-category-card {
         width: 90%;
         height: 90vh;
-        border: 1px solid black;
+        position: relative;
         position: absolute;
+        overflow: hidden;
         @media screen and (min-width: $laptop) {
             height: 70vh;
             width: 40%;
@@ -1253,20 +1278,71 @@ body {
 
     .gender-category-card-men {
         @include gender-category-card();
-        @include background(url(/Mammut-responsive/slike/gender-category-background/men.txt));
         top: 20vh;
         @media screen and (min-width: $laptop) {
             left: 7%;
             top: 5vh;
         }
+
+        .gender-category-card-background-men {
+            @include background(url(/Mammut-responsive/slike/gender-category-background/men.txt));
+            width: 100%;
+            height: 100%;
+            position : absolute;
+            transition: all .5s ease-in-out;
+        }
     }
+
     .gender-category-card-women {
         @include gender-category-card();
-        @include background(url(/Mammut-responsive/slike/gender-category-background/women.txt));
         bottom: 20vh;
         @media screen and (min-width: $laptop) {
             right: 7%;
             bottom: 5vh;
+        }
+
+        .gender-category-card-background-women {
+            @include background(url(/Mammut-responsive/slike/gender-category-background/women.txt));
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: all .5s ease-in-out;
+        }
+    }
+
+    .gender-category-card-content-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        position: absolute;
+        background-color: rgba($color: #000000, $alpha: 30%);
+
+        .gender-category-card-title {
+            position: absolute;
+            font-size: 4rem;
+            color: #fff;
+            left: 5rem;
+            top: 3.5rem;
+        }
+
+        .gender-category-card-text {
+            font-size: 2rem;
+            color: #fff;
+            position: absolute;
+            bottom: 3.5rem;
+            left: 5rem;
+        }
+    }
+
+    .gender-category-card-men:hover {
+        .gender-category-card-background-men {
+            transform: scale(1.1);
+        }
+    }
+
+    .gender-category-card-women:hover {
+        .gender-category-card-background-women {
+            transform: scale(1.1);
         }
     }
 }
@@ -1404,15 +1480,24 @@ body {
 
     .gear-class-list-item:hover {
         .gear-class-list-icon-left {
-            translate: 8.5rem;
+            translate: 0rem;
+            @media screen and (min-width: $laptop) {
+                translate: 8.5rem;
+            }
         }
 
         .gear-class-list-icon-mid {
-            translate: 8.5rem;
+            translate: 0rem;
+            @media screen and (min-width: $laptop) {
+                translate: 8.5rem;
+            }
         }
 
         .gear-class-list-icon-right {
-            translate: 8.5rem;
+            translate: 0rem;
+            @media screen and (min-width: $laptop) {
+                translate: 8.5rem;
+            }
         }
     }
 

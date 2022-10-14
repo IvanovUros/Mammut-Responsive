@@ -72,37 +72,42 @@ window.addEventListener('resize', () => {
     mainMenuSubItemFootwearMen.style.translate = '0 0';
     mainMenuSubItemFootwearWomen.style.translate = '0 0';
     mainMenuSubItemEquipmentShopByActivity.style.translate = '0 0';
-  };
-  if (subExtentionClothingOpen) {
-    overflowVisible(mainMenu);
-  };
-  if (subExtentionFootwearOpen) {
-    overflowVisible(mainMenu);
-  };
-  if (subExtentionEquipmentOpen) {
-    overflowVisible(mainMenu);
-  };
-  if (subSubExtentionClothingShopByActivityOpen) {
-    overflowVisible(mainMenuSubExtentionClothing);
-  };
-  if (subSubExtentionClothingMenOpen) {
-    overflowVisible(mainMenuSubExtentionClothing);
-  };
-  if (subSubExtentionClothingWomenOpen) {
-    overflowVisible(mainMenuSubExtentionClothing);
-  };
-  if (subSubExtentionFootwearShopByActivityOpen) {
-    overflowVisible(mainMenuSubExtentionFootwear);
-  };
-  if (subSubExtentionFootwearMenOpen) {
-    overflowVisible(mainMenuSubExtentionFootwear);
-  };
-  if (subSubExtentionFootwearWomenOpen) {
-    overflowVisible(mainMenuSubExtentionFootwear);
-  };
-  if(subSubExtentionEquipmentOpen) {
-    overflowVisible(mainMenuSubExtentionEquipment);
-  };
+    if (subExtentionClothingOpen) {
+      overflowVisible(mainMenu);
+    };
+    if (subExtentionFootwearOpen) {
+      overflowVisible(mainMenu);
+    };
+    if (subExtentionEquipmentOpen) {
+      overflowVisible(mainMenu);
+    };
+    if (subSubExtentionClothingShopByActivityOpen) {
+      overflowVisible(mainMenuSubExtentionClothing);
+    };
+    if (subSubExtentionClothingMenOpen) {
+      overflowVisible(mainMenuSubExtentionClothing);
+    };
+    if (subSubExtentionClothingWomenOpen) {
+      overflowVisible(mainMenuSubExtentionClothing);
+    };
+    if (subSubExtentionFootwearShopByActivityOpen) {
+      overflowVisible(mainMenuSubExtentionFootwear);
+    };
+    if (subSubExtentionFootwearMenOpen) {
+      overflowVisible(mainMenuSubExtentionFootwear);
+    };
+    if (subSubExtentionFootwearWomenOpen) {
+      overflowVisible(mainMenuSubExtentionFootwear);
+    };
+    if(subSubExtentionEquipmentOpen) {
+      overflowVisible(mainMenuSubExtentionEquipment);
+    };
+  } else {
+    subSubExtentionBackgroundClothing.classList.remove('open');
+    subSubExtentionBackgroundFootwear.classList.remove('open');
+    subSubExtentionBackgroundEquipment.classList.remove('open');
+   
+  }
 });
 function overflowHidden(x) {
   x.style.overflow = 'hidden';

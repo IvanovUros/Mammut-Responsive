@@ -1073,6 +1073,11 @@ body {
     right: 0;
   }
 }
+@media screen and (min-width: 1366px) {
+  .hero-up .hero-content-wrapper-up .hero-title-up {
+    font-size: 5rem;
+  }
+}
 .hero-up .hero-content-wrapper-up .hero-text-up {
   width: 60%;
   font-size: 1.6rem;
@@ -1225,6 +1230,8 @@ body {
   height: 100%;
   margin: 0 1rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url(/Mammut-responsive/slike/category-card-backround/clothing.txt);
   background-size: cover;
   background-position: center;
@@ -1235,6 +1242,8 @@ body {
   height: 100%;
   margin: 0 1rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url(/Mammut-responsive/slike/category-card-backround/footwear.txt);
   background-size: cover;
   background-position: center;
@@ -1245,18 +1254,97 @@ body {
   height: 100%;
   margin: 0 1rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url(/Mammut-responsive/slike/category-card-backround/equipment.txt);
   background-size: cover;
   background-position: center;
 }
+.category-container .category-card-wrapper .category-card-text {
+  font-size: 2rem;
+  color: #fff;
+}
 
 .hero-mid {
   width: 100%;
-  height: 90vh;
+  height: 170vh;
   position: absolute;
   position: relative;
   background-color: #23293c;
   display: flex;
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid {
+    height: 95vh;
+    width: 100%;
+  }
+}
+.hero-mid .hero-img-wrapper-mid {
+  width: 100%;
+  height: 68%;
+  background-image: url(/Mammut-responsive/slike/hero-background/hero-background-mid.txt);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid .hero-img-wrapper-mid {
+    height: 100%;
+    width: 68%;
+  }
+}
+.hero-mid .hero-content-wrapper-mid {
+  width: 100%;
+  height: 32%;
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid .hero-content-wrapper-mid {
+    height: 100%;
+    width: 32%;
+    position: relative;
+    position: absolute;
+    right: 0;
+  }
+}
+.hero-mid .hero-content-wrapper-mid .hero-title-mid {
+  font-size: 4.5rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid .hero-content-wrapper-mid .hero-title-mid {
+    top: 20%;
+    width: 70%;
+    right: 0;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .hero-mid .hero-content-wrapper-mid .hero-title-mid {
+    font-size: 5rem;
+  }
+}
+.hero-mid .hero-content-wrapper-mid .hero-text-mid {
+  width: 60%;
+  font-size: 1.6rem;
+  color: #fff;
+  position: absolute;
+  left: 5%;
+  top: 40%;
+  top: 40%;
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid .hero-content-wrapper-mid .hero-text-mid {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero-mid .hero-content-wrapper-mid .hero-text-mid {
+    top: 60%;
+  }
 }
 
 .gender-category-container {
@@ -1274,11 +1362,9 @@ body {
 .gender-category-container .gender-category-card-men {
   width: 90%;
   height: 90vh;
-  border: 1px solid black;
+  position: relative;
   position: absolute;
-  background-image: url(/Mammut-responsive/slike/gender-category-background/men.txt);
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   top: 20vh;
 }
 @media screen and (min-width: 1024px) {
@@ -1293,14 +1379,21 @@ body {
     top: 5vh;
   }
 }
+.gender-category-container .gender-category-card-men .gender-category-card-background-men {
+  background-image: url(/Mammut-responsive/slike/gender-category-background/men.txt);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}
 .gender-category-container .gender-category-card-women {
   width: 90%;
   height: 90vh;
-  border: 1px solid black;
+  position: relative;
   position: absolute;
-  background-image: url(/Mammut-responsive/slike/gender-category-background/women.txt);
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   bottom: 20vh;
 }
 @media screen and (min-width: 1024px) {
@@ -1314,6 +1407,42 @@ body {
     right: 7%;
     bottom: 5vh;
   }
+}
+.gender-category-container .gender-category-card-women .gender-category-card-background-women {
+  background-image: url(/Mammut-responsive/slike/gender-category-background/women.txt);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}
+.gender-category-container .gender-category-card-content-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.gender-category-container .gender-category-card-content-wrapper .gender-category-card-title {
+  position: absolute;
+  font-size: 4rem;
+  color: #fff;
+  left: 5rem;
+  top: 3.5rem;
+}
+.gender-category-container .gender-category-card-content-wrapper .gender-category-card-text {
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  bottom: 3.5rem;
+  left: 5rem;
+}
+.gender-category-container .gender-category-card-men:hover .gender-category-card-background-men {
+  transform: scale(1.1);
+}
+.gender-category-container .gender-category-card-women:hover .gender-category-card-background-women {
+  transform: scale(1.1);
 }
 
 .hero-btm {
@@ -1371,6 +1500,11 @@ body {
     top: 20%;
     width: 70%;
     right: 0;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .hero-btm .hero-content-wrapper-btm .hero-title-btm {
+    font-size: 5rem;
   }
 }
 .hero-btm .hero-content-wrapper-btm .hero-text-btm {
@@ -1531,13 +1665,28 @@ body {
   }
 }
 .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-left {
-  translate: 8.5rem;
+  translate: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-left {
+    translate: 8.5rem;
+  }
 }
 .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-mid {
-  translate: 8.5rem;
+  translate: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-mid {
+    translate: 8.5rem;
+  }
 }
 .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-right {
-  translate: 8.5rem;
+  translate: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .gear-class-list-container .gear-class-list-item:hover .gear-class-list-icon-right {
+    translate: 8.5rem;
+  }
 }
 .gear-class-list-container .border-line {
   display: inline-block;
