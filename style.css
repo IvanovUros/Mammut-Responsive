@@ -879,6 +879,55 @@ body {
   margin-left: 5%;
   height: 7rem;
   z-index: 30;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-text {
+  font-size: 2rem;
+  color: #000;
+  position: absolute;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper {
+  width: 22rem;
+  height: 6rem;
+  position: absolute;
+  right: 0;
+  display: flex;
+  overflow: hidden;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-left,
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-mid,
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-right {
+  width: 6rem;
+  height: 6rem;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+  float: right;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-left {
+  transition: all 0.3s ease-in-out;
+  translate: 14.5rem;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-mid {
+  transition: all 0.35s ease-in-out;
+  translate: 14.5rem;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item .main-menu-sub-sub-nav-icon-wrapper .main-menu-sub-sub-nav-icon-right {
+  transition: all 0.4s ease-in-out;
+  translate: 14.5rem;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item:hover .main-menu-sub-sub-nav-icon-left {
+  translate: 0;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item:hover .main-menu-sub-sub-nav-icon-mid {
+  translate: 0;
+}
+.main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-item:hover .main-menu-sub-sub-nav-icon-right {
+  translate: 0;
 }
 .main-menu .main-menu-nav .main-menu-nav-item .main-menu-sub-sub-nav-border-line {
   display: inline-block;

@@ -10,17 +10,37 @@ const loopBasketWrapper = document.getElementById('loopBasketWrapper');
 const mainMenuOpenClosSwitch = document.getElementById('mainMenuOpenCloseSwitch');
 const mainMenu = document.getElementById('mainMenu');
 const mainMenuNavWrapper = document.getElementById('mainMenuNavWrapper');
-
 const menuNavItemClothing = document.getElementById('menuNavItemClothing');
 const menuNavItemFootwear = document.getElementById('menuNavItemFootwear');
 const menuNavItemEquipment = document.getElementById('menuNavItemEquipment');
 const menuNavBorderLine = Array.from(document.getElementsByClassName('main-menu-main-nav-border-line'));
-
 const mainMenuSubExtentionClothing = document.getElementById('mainMenuSubExtentionClothing');
 const mainMenuSubExtentionFootwear = document.getElementById('mainMenuSubExtentionFootwear');
 const mainMenuSubExtentionEquipment = document.getElementById('mainMenuSubExtentionEquipment');
-
-
+const subExtentionBorderLine = Array.from(document.getElementsByClassName('main-menu-sub-extention-border-line'));
+const subExtentionEquipmentLazyItems = Array.from(document.getElementsByClassName('main-menu-sub-extention-nav-item-equipment'));
+const mainMenuSubItemClothingShopByActivity = document.getElementById('mainMenuSubItemClothingShopByActivity');
+const mainMenuSubItemClothingMen = document .getElementById('mainMenuSubItemClothingMen');
+const mainMenuSubItemClothingWomen = document .getElementById('mainMenuSubItemClothingWomen');
+const mainMenuSubItemFootwearShopByActivity = document.getElementById('mainMenuSubItemFootwearShopByActivity');
+const mainMenuSubItemFootwearMen = document.getElementById('mainMenuSubItemFootwearMen');
+const mainMenuSubItemFootwearWomen = document.getElementById('mainMenuSubItemFootwearWomen');
+const mainMenuSubSubExtentionNavClothingShopByActivity = document.querySelector('.main-menu-sub-sub-nav-clothing-shop-by-activity');
+const mainMenuSubSubExtentionNavClothingMen = document.querySelector('.main-menu-sub-sub-nav-clothing-men');
+const mainMenuSubSubExtentionNavClothingWomen = document.querySelector('.main-menu-sub-sub-nav-clothing-women');
+const mainMenuSubSubExtentionNavFootwearShopByActivity = document.querySelector('.main-menu-sub-sub-nav-footwear-shop-by-activity');
+const mainMenuSubSubExtentionNavFootwearMen = document.querySelector('.main-menu-sub-sub-nav-footwear-men');
+const mainMenuSubSubExtentionNavFootwearWomen = document.querySelector('.main-menu-sub-sub-nav-footwear-women');
+const subSubExtentionBackgroundClothing = document.querySelector('.main-menu-sub-sub-extention-background-clothing');
+const subSubExtentionBackgroundFootwear = document.querySelector('.main-menu-sub-sub-extention-background-footwear');
+const subSubExtentionBackgroundEquipment = document.querySelector('.main-menu-sub-sub-extention-background-equipment');
+const mainMenuSubItemEquipmentShopByActivity = document.getElementById('mainMenuSubExtentionNavItemEquipmentShopByActivity');
+const mainMenuSubSubExtentionNavEquipmentShopByActivity = document.querySelector('.main-menu-sub-sub-nav-equipment-shop-by-activity');
+let menuOpen = false;
+let subSubExtentionFootwearShopByActivityOpen = false;
+let subSubExtentionFootwearMenOpen = false;
+let subSubExtentionFootwearWomenOpen = false;
+let subSubExtentionEquipmentOpen = false;
 let screenWidth = screen.width;
 let subExtentionClothingOpen = false;
 let subExtentionFootwearOpen = false;
@@ -29,11 +49,61 @@ let subSubExtentionClothingShopByActivityOpen = false;
 let subSubExtentionClothingMenOpen = false;
 let subSubExtentionClothingWomenOpen = false;
 
-
 window.addEventListener('resize', () => {
   screenWidth = screen.width;
+  mainMenuSubExtentionOpeningAnimationLaptop();
+  mainMenuSubExtentionOpeningAnimationMobile();
+  mainMenuSubSubExtentionOpeningAnimationLaptop();
+  mainMenuSubSubExtentionOpeningAnimationMobile();
+  if (screenWidth >= 1024) {
+    menuNavBorderLine.forEach(menuNavBorderLine => {
+      menuNavBorderLine.style.translate = '0 0';
+    });
+    menuNavItemClothing.style.translate = '0 0';
+    menuNavItemFootwear.style.translate = '0 0';
+    menuNavItemEquipment.style.translate = '0 0';
+    subExtentionBorderLine.forEach(subExtentionBorderLine => {
+      subExtentionBorderLine.style.translate = '0 0';
+    });
+    mainMenuSubItemClothingShopByActivity.style.translate = '0 0';
+    mainMenuSubItemClothingMen.style.translate = '0 0';
+    mainMenuSubItemClothingWomen.style.translate = '0 0';
+    mainMenuSubItemFootwearShopByActivity.style.translate = '0 0';
+    mainMenuSubItemFootwearMen.style.translate = '0 0';
+    mainMenuSubItemFootwearWomen.style.translate = '0 0';
+    mainMenuSubItemEquipmentShopByActivity.style.translate = '0 0';
+  };
+  if (subExtentionClothingOpen) {
+    overflowVisible(mainMenu);
+  };
+  if (subExtentionFootwearOpen) {
+    overflowVisible(mainMenu);
+  };
+  if (subExtentionEquipmentOpen) {
+    overflowVisible(mainMenu);
+  };
+  if (subSubExtentionClothingShopByActivityOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+  };
+  if (subSubExtentionClothingMenOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+  };
+  if (subSubExtentionClothingWomenOpen) {
+    overflowVisible(mainMenuSubExtentionClothing);
+  };
+  if (subSubExtentionFootwearShopByActivityOpen) {
+    overflowVisible(mainMenuSubExtentionFootwear);
+  };
+  if (subSubExtentionFootwearMenOpen) {
+    overflowVisible(mainMenuSubExtentionFootwear);
+  };
+  if (subSubExtentionFootwearWomenOpen) {
+    overflowVisible(mainMenuSubExtentionFootwear);
+  };
+  if(subSubExtentionEquipmentOpen) {
+    overflowVisible(mainMenuSubExtentionEquipment);
+  };
 });
-
 function overflowHidden(x) {
   x.style.overflow = 'hidden';
 };
@@ -49,56 +119,6 @@ function displayNone(x) {
 function displayBlock (x) {
   x.style.display = 'initial';
 }
-
-let menuOpen = false;
-if(screenWidth < 1024) {
-onload = () => {
-  overheadBar.style.width = '90%';
-    setTimeout( function logoAnimation() {
-        logoWrapper.style.translate = '0';
-      },1000);
-};
-setTimeout( function menuWrapperAnimation() {
-  menuBtnBorder.style.translate = '0';
-  loopBasketWrapper.style.translate = '0';
-  loopBasketWrapper.style.width = '170px';
-},1000);
-} else {
-  onload = () => {
-    overheadBar.style.width = '90%';
-      setTimeout( function logoAnimation() {
-          logoWrapper.style.translate = '0';
-        },1000);
-  };
-  setTimeout( function menuWrapperAnimation() {
-    menuBtnBorder.style.translate = '0';
-    loopBasketWrapper.style.translate = '0';
-    loopBasketWrapper.style.width = '170px';
-  },1000);
-};
-menuBtn.addEventListener('click', () =>{
-  mainMenu.style.transition = 'all .3s ease-in-out';
-    if (!menuOpen) {
-      mainMenu.style.transition = 'all .3s ease-in-out';
-      menuBtn.classList.add('open');
-      menuOpen = true;
-      overflowHidden(body);
-      mainMenu.classList.add('open');
-    } else {
-      setTimeout(function() {
-        mainMenu.style.transition = 'none';
-      }, 300);
-      menuBtn.classList.remove('open');
-      menuOpen = false;
-      overflowVisible(body);
-      mainMenu.classList.remove('open');
-      setTimeout(function () {
-        mainMenu.classList.remove('initial');
-        mainMenu.classList.remove('scroll');
-      }, 250);
-    };
-    mainMenuClosingAnimation();
-});
 function mainMenuClosingAnimation() {
   menuNavBorderLine.forEach(menuNavBorderLine => {
     menuNavBorderLine.style.translate = '0 0';
@@ -144,7 +164,6 @@ function mainMenuClosingAnimation() {
 
   });
 };
-
 function mainMenuSubExtentionOpeningAnimationMobile () {
   if (subExtentionClothingOpen) {
     overflowScroll(mainMenu);
@@ -274,97 +293,8 @@ function mainMenuSubExtentionClosingAnimation () {
     mainMenuSubItemClothingShopByActivity.style.translate = '0 0';
     mainMenuSubItemClothingMen.style.translate = '0 0';
     mainMenuSubItemClothingWomen.style.translate = '0 0';
-    
   };
-}
-menuNavItemClothing.addEventListener('mouseover', () => {
-  subExtentionClothingOpen = true;
-  subExtentionFootwearOpen = false;
-  subExtentionEquipmentOpen = false;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingWomenOpen = false;
-  subSubExtentionFootwearShopByActivityOpen = false;
-  subSubExtentionFootwearMenOpen = false;
-  subSubExtentionFootwearWomenOpen = false;
-  subSubExtentionEquipmentOpen = false;
-  mainMenuSubExtentionClosingAnimation();
-  if (screenWidth < 1024) {
-    mainMenuSubExtentionOpeningAnimationMobile();
-  } else {
-    mainMenuSubExtentionOpeningAnimationLaptop();
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionFootwear);
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionEquipment);
-  };
-  
-});
-menuNavItemFootwear.addEventListener('mouseover',() => {
-  subExtentionClothingOpen = false;
-  subExtentionFootwearOpen = true;
-  subExtentionEquipmentOpen = false;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingWomenOpen = false;
-  subSubExtentionFootwearShopByActivityOpen = false;
-  subSubExtentionFootwearMenOpen = false;
-  subSubExtentionFootwearWomenOpen = false;
-  subSubExtentionEquipmentOpen = false;
-  mainMenuSubExtentionClosingAnimation();
-  if (screenWidth < 1024) {
-    mainMenuSubExtentionOpeningAnimationMobile();
-  } else {
-    mainMenuSubExtentionOpeningAnimationLaptop();
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionClothing);
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionEquipment);
-  }
-});
-menuNavItemEquipment.addEventListener('mouseover',() => {
-  subExtentionClothingOpen = false;
-  subExtentionFootwearOpen = false;
-  subExtentionEquipmentOpen = true;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingMenOpen = false;
-  subSubExtentionClothingWomenOpen = false;
-  subSubExtentionFootwearShopByActivityOpen = false;
-  subSubExtentionFootwearMenOpen = false;
-  subSubExtentionFootwearWomenOpen = false;
-  mainMenuSubExtentionClosingAnimation();
-  if (screenWidth < 1024) {
-    mainMenuSubExtentionOpeningAnimationMobile();
-  } else {
-    mainMenuSubExtentionOpeningAnimationLaptop();
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionFootwear);
-    setTimeout(overflowHidden, 300, mainMenuSubExtentionClothing);
-  }
-});
-
-
-const subExtentionBorderLine = Array.from(document.getElementsByClassName('main-menu-sub-extention-border-line'));
-const subExtentionEquipmentLazyItems = Array.from(document.getElementsByClassName('main-menu-sub-extention-nav-item-equipment'));
-const mainMenuSubItemClothingShopByActivity = document.getElementById('mainMenuSubItemClothingShopByActivity');
-const mainMenuSubItemClothingMen = document .getElementById('mainMenuSubItemClothingMen');
-const mainMenuSubItemClothingWomen = document .getElementById('mainMenuSubItemClothingWomen');
-const mainMenuSubItemFootwearShopByActivity = document.getElementById('mainMenuSubItemFootwearShopByActivity');
-const mainMenuSubItemFootwearMen = document.getElementById('mainMenuSubItemFootwearMen');
-const mainMenuSubItemFootwearWomen = document.getElementById('mainMenuSubItemFootwearWomen');
-const mainMenuSubSubExtentionNavClothingShopByActivity = document.querySelector('.main-menu-sub-sub-nav-clothing-shop-by-activity');
-const mainMenuSubSubExtentionNavClothingMen = document.querySelector('.main-menu-sub-sub-nav-clothing-men');
-const mainMenuSubSubExtentionNavClothingWomen = document.querySelector('.main-menu-sub-sub-nav-clothing-women');
-const mainMenuSubSubExtentionNavFootwearShopByActivity = document.querySelector('.main-menu-sub-sub-nav-footwear-shop-by-activity');
-const mainMenuSubSubExtentionNavFootwearMen = document.querySelector('.main-menu-sub-sub-nav-footwear-men');
-const mainMenuSubSubExtentionNavFootwearWomen = document.querySelector('.main-menu-sub-sub-nav-footwear-women');
-const subSubExtentionBackgroundClothing = document.querySelector('.main-menu-sub-sub-extention-background-clothing');
-const subSubExtentionBackgroundFootwear = document.querySelector('.main-menu-sub-sub-extention-background-footwear');
-const subSubExtentionBackgroundEquipment = document.querySelector('.main-menu-sub-sub-extention-background-equipment');
-const mainMenuSubItemEquipmentShopByActivity = document.getElementById('mainMenuSubExtentionNavItemEquipmentShopByActivity');
-const mainMenuSubSubExtentionNavEquipmentShopByActivity = document.querySelector('.main-menu-sub-sub-nav-equipment-shop-by-activity');
-
-let subSubExtentionFootwearShopByActivityOpen = false;
-let subSubExtentionFootwearMenOpen = false;
-let subSubExtentionFootwearWomenOpen = false;
-let subSubExtentionEquipmentOpen = false;
-
-
+};
 function mainMenuSubSubExtentionOpeningAnimationMobile () {
   if (subSubExtentionClothingShopByActivityOpen) {
     overflowScroll(mainMenuSubExtentionClothing);
@@ -515,6 +445,119 @@ function mainMenuSubSubExtentionOpeningAnimationLaptop () {
   }
 };
 
+if(screenWidth < 1024) {
+onload = () => {
+  overheadBar.style.width = '90%';
+    setTimeout( function logoAnimation() {
+        logoWrapper.style.translate = '0';
+      },1000);
+};
+setTimeout( function menuWrapperAnimation() {
+  menuBtnBorder.style.translate = '0';
+  loopBasketWrapper.style.translate = '0';
+  loopBasketWrapper.style.width = '170px';
+},1000);
+} else {
+  onload = () => {
+    overheadBar.style.width = '90%';
+      setTimeout( function logoAnimation() {
+          logoWrapper.style.translate = '0';
+        },1000);
+  };
+  setTimeout( function menuWrapperAnimation() {
+    menuBtnBorder.style.translate = '0';
+    loopBasketWrapper.style.translate = '0';
+    loopBasketWrapper.style.width = '170px';
+  },1000);
+};
+
+menuBtn.addEventListener('click', () =>{
+  mainMenu.style.transition = 'all .3s ease-in-out';
+    if (!menuOpen) {
+      mainMenu.style.transition = 'all .3s ease-in-out';
+      menuBtn.classList.add('open');
+      menuOpen = true;
+      overflowHidden(body);
+      mainMenu.classList.add('open');
+    } else {
+      setTimeout(function() {
+        mainMenu.style.transition = 'none';
+      }, 300);
+      menuBtn.classList.remove('open');
+      menuOpen = false;
+      overflowVisible(body);
+      mainMenu.classList.remove('open');
+      setTimeout(function () {
+        mainMenu.classList.remove('initial');
+        mainMenu.classList.remove('scroll');
+      }, 250);
+    };
+    mainMenuClosingAnimation();
+});
+
+menuNavItemClothing.addEventListener('mouseover', () => {
+  subExtentionClothingOpen = true;
+  subExtentionFootwearOpen = false;
+  subExtentionEquipmentOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingWomenOpen = false;
+  subSubExtentionFootwearShopByActivityOpen = false;
+  subSubExtentionFootwearMenOpen = false;
+  subSubExtentionFootwearWomenOpen = false;
+  subSubExtentionEquipmentOpen = false;
+  mainMenuSubExtentionClosingAnimation();
+  if (screenWidth < 1024) {
+    mainMenuSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubExtentionOpeningAnimationLaptop();
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionFootwear);
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionEquipment);
+  };
+  
+});
+
+menuNavItemFootwear.addEventListener('mouseover',() => {
+  subExtentionClothingOpen = false;
+  subExtentionFootwearOpen = true;
+  subExtentionEquipmentOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingWomenOpen = false;
+  subSubExtentionFootwearShopByActivityOpen = false;
+  subSubExtentionFootwearMenOpen = false;
+  subSubExtentionFootwearWomenOpen = false;
+  subSubExtentionEquipmentOpen = false;
+  mainMenuSubExtentionClosingAnimation();
+  if (screenWidth < 1024) {
+    mainMenuSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubExtentionOpeningAnimationLaptop();
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionClothing);
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionEquipment);
+  }
+});
+
+menuNavItemEquipment.addEventListener('mouseover',() => {
+  subExtentionClothingOpen = false;
+  subExtentionFootwearOpen = false;
+  subExtentionEquipmentOpen = true;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingMenOpen = false;
+  subSubExtentionClothingWomenOpen = false;
+  subSubExtentionFootwearShopByActivityOpen = false;
+  subSubExtentionFootwearMenOpen = false;
+  subSubExtentionFootwearWomenOpen = false;
+  mainMenuSubExtentionClosingAnimation();
+  if (screenWidth < 1024) {
+    mainMenuSubExtentionOpeningAnimationMobile();
+  } else {
+    mainMenuSubExtentionOpeningAnimationLaptop();
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionFootwear);
+    setTimeout(overflowHidden, 300, mainMenuSubExtentionClothing);
+  }
+});
+
 mainMenuSubItemClothingShopByActivity.addEventListener('mouseover', () => {
   subSubExtentionClothingShopByActivityOpen = true;
   subSubExtentionClothingMenOpen = false;
@@ -525,6 +568,7 @@ mainMenuSubItemClothingShopByActivity.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   }
 });
+
 mainMenuSubItemClothingMen.addEventListener('mouseover', () => {
   subSubExtentionClothingShopByActivityOpen = false;
   subSubExtentionClothingMenOpen = true;
@@ -535,6 +579,7 @@ mainMenuSubItemClothingMen.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   }
 });
+
 mainMenuSubItemClothingWomen.addEventListener('mouseover', () => {
   subSubExtentionClothingShopByActivityOpen = false;
   subSubExtentionClothingMenOpen = false;
@@ -545,6 +590,7 @@ mainMenuSubItemClothingWomen.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   };
 });
+
 mainMenuSubItemFootwearShopByActivity.addEventListener('mouseover', () => {
   subSubExtentionFootwearShopByActivityOpen = true;
   subSubExtentionFootwearMenOpen = false;
@@ -555,6 +601,7 @@ mainMenuSubItemFootwearShopByActivity.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   };
 });
+
 mainMenuSubItemFootwearMen.addEventListener('mouseover', () => {
   subSubExtentionFootwearShopByActivityOpen = false;
   subSubExtentionFootwearMenOpen = true;
@@ -565,6 +612,7 @@ mainMenuSubItemFootwearMen.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   };
 });
+
 mainMenuSubItemFootwearWomen.addEventListener('mouseover', () => {
   subSubExtentionFootwearShopByActivityOpen = false;
   subSubExtentionFootwearMenOpen = false;
@@ -575,6 +623,7 @@ mainMenuSubItemFootwearWomen.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   };
 });
+
 mainMenuSubItemEquipmentShopByActivity.addEventListener('mouseover', () => {
   subSubExtentionEquipmentOpen = true;
   if (screenWidth < 1024) {
@@ -583,6 +632,7 @@ mainMenuSubItemEquipmentShopByActivity.addEventListener('mouseover', () => {
     mainMenuSubSubExtentionOpeningAnimationLaptop();
   };
 });
+
 
 
 
