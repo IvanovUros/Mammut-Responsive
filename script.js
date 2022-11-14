@@ -106,7 +106,6 @@ window.addEventListener('resize', () => {
     subSubExtentionBackgroundClothing.classList.remove('open');
     subSubExtentionBackgroundFootwear.classList.remove('open');
     subSubExtentionBackgroundEquipment.classList.remove('open');
-   
   }
 });
 function overflowHidden(x) {
@@ -519,7 +518,6 @@ menuNavItemClothing.addEventListener('mouseover', () => {
     setTimeout(overflowHidden, 300, mainMenuSubExtentionFootwear);
     setTimeout(overflowHidden, 300, mainMenuSubExtentionEquipment);
   };
-  
 });
 
 menuNavItemFootwear.addEventListener('mouseover',() => {
